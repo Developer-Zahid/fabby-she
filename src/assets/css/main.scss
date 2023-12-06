@@ -77,3 +77,15 @@ i[class^="fi"]{
 }
 
 @import url(./components/_buttons.scss);
+
+.section-title {
+    font-size: 2.52rem;
+}
+
+.section-gap {
+    padding-block: 5rem;
+}
+
+.vh-100{
+    min-height: 100vh;
+}
