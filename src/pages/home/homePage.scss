@@ -27,11 +27,32 @@
     }
 
     &__figure{
+        position: relative;
         overflow: hidden;
         border-radius: 3rem;
+        width: 100%;
+        height: 100%;
 
         &__image{
             width: 100%;
+            height: 100%;
         }
+    }
+
+    &__slider{
+        position: relative;
+        border-radius: 3rem;
+        padding-top: 80%;
+        max-width: 400px;
+        margin-inline: auto;
+
+    }
+
+    &__slide{
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        transform: translateX(calc(var(--_slide-index) * 20px)) scale(calc(var(--_slide-index) / 100 * 3));
     }
 }

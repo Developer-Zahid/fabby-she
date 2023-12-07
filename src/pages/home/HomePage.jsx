@@ -18,9 +18,23 @@ export default function HomePage() {
               <Link to="#!" className="btn btn-primary">Shop Now <i className="fi fi-br-angle-right"></i></Link>
             </div>
             <div className="col-lg-6 col-md-8 mx-auto">
-              <figure className="banner__figure">
-                <Image className="banner__figure__image" src="https://i.ibb.co/sVstvs6/banner-product.jpg" alt="bag product" />
-              </figure>
+              <div className="banner__slider">
+                <div className="banner__slide" style={{ '--_slide-index': 1 }}>
+                  <figure className="banner__figure">
+                    <Image className="banner__figure__image" src="https://i.ibb.co/sVstvs6/banner-product.jpg" alt="bag product" />
+                  </figure>
+                </div>
+                <div className="banner__slide" style={{ '--_slide-index': 2 }}>
+                  <figure className="banner__figure">
+                    <Image className="banner__figure__image" src="https://images.pexels.com/photos/821651/pexels-photo-821651.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="bag product" />
+                  </figure>
+                </div>
+                <div className="banner__slide" style={{ '--_slide-index': 3 }}>
+                  <figure className="banner__figure">
+                    <Image className="banner__figure__image" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D" alt="bag product" />
+                  </figure>
+                </div>
+              </div>
             </div>
           </div>
         </div>
