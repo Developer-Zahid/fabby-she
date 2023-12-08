@@ -1,0 +1,38 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap-grid.min.css');
+@import url('https://fonts.cdnfonts.com/css/cabinet-grotesk');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css');
+
+// SCSS Variable's
+$scss-font-primary: 'Cabinet Grotesk', sans-serif;
+$scss-font-secondary: 'Poppins', sans-serif;
+$scss-color-primary:#ea5949;
+$scss-color-primary-rgb: toRGB($scss-color-primary);
+
+:root{
+    --color-primary: #{$scss-color-primary};
+    --color-primary-rgb: #{$scss-color-primary-rgb};
+    --color-body: #fff6f1;
+
+    --font-primary: #{$scss-font-primary};
+    --font-secondary: #{$scss-font-secondary};
+
+    --transition-menu: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+$font-primary: var(--font-primary);
+$font-secondary: var(--font-secondary);
+
+$color-primary: var(--color-primary);
+$color-primary-rgb: var(--color-primary-rgb);
+
+$color-black:#000000;
+$color-white:#ffffff;
+$color-body: var(--color-body);
+
+$gutter: 28px;
+
+$transition-menu: var(--transition-menu);
+$transition-ease: cubic-bezier(.21,.01,.21,.96);
+$transition-ease--bounce: cubic-bezier(0.34, 1.56, 0.64, 1);

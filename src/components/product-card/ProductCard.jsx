@@ -19,7 +19,7 @@ export default function ProductCard({productLink, productImage, productImageAlt,
         <div className="product-card__body">
             <h2 className="product-card__body__price">{productPrice}</h2>
             <h3 className="product-card__body__title">
-                <Link to={productLink}>{productTitle}</Link>
+                <Link to={productLink} className="product-card__body__title__link">{productTitle}</Link>
             </h3>
             {
                 productColors &&

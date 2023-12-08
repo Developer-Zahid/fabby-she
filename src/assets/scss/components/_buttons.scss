@@ -1,0 +1,26 @@
+@use '../abstracts' as *;
+
+.btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: toRem(18);
+    padding: toEm(18) toEm(40);
+    gap: 5px;
+    color: $color-white;
+    background-color: $color-primary;
+    line-height: 1;
+    transition: background-color .2s ease-in-out;
+
+    &:active{
+        background-color: $color-black;
+    }
+
+    @include hover{
+        &:hover,
+        &:focus-visible
+        {
+            background-color: $color-black;
+        }
+    }
+}

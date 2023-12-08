@@ -1,0 +1,33 @@
+@use '../../../assets/scss/abstracts' as *;
+
+.banner{
+    &__figure{
+        @extend %stacking-context;
+        @extend %overflow-hidden;
+        padding-top: 130%;
+        width: 100%;
+        border-radius: toRem(32);
+        @include min-xl{
+            border-radius: toRem(48);
+        }
+
+        &__image{
+            @extend %full-width;
+            @extend %select-none;
+        }
+    }
+}
+
+.swiper {
+    max-width: toRem(220);
+    @media (min-width: 380px) {
+        max-width: toRem(300);
+    }
+    @include min-xl{
+        max-width: toRem(400);
+    }
+
+    &-3d .swiper-slide-shadow{
+        background-color: transparent;
+    }
+}

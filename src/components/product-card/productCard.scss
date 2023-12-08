@@ -1,37 +1,35 @@
+@use '../../assets/scss/abstracts' as *;
+
 .product-card{
     --_radius: 2.5rem;
 
-    background-color: #ffffff;
-    padding: 12px;
-    margin-block-end: 1.5rem;
+    background-color: $color-white;
+    box-shadow: 0 0 toEm(20) rgba($color-black, $alpha: 0.02);
+    padding: toRem(12);
+    margin-block-end: $gutter;
     border-radius: calc(var(--_radius) / 2);
-    overflow: hidden;
+    @extend %overflow-hidden;
 
     &__head{
         position: relative;
 
         &__figure{
-            position: relative;
-            isolation: isolate;
+            @extend %stacking-context;
             padding-top: 110%;
 
             &__bg{
-                position: absolute;
-                inset: 0;
-                width: 100%;
-                height: 100%;
+                @extend %full-width;
                 border-radius: calc(var(--_radius) / 2);
             }
         }
 
         &__action{
             --_size: 3rem;
-            
             @media (min-width: 768px) and (max-width: 991.98px), (min-width: 1400px){
                 --_size: 3.5rem;
             }
-
             --_gap: 10px;
+
             position: absolute;
             isolation: isolate;
             right: 0;
@@ -39,18 +37,18 @@
             padding-block-start: var(--_gap);
             padding-inline-start: var(--_gap);
             border-top-left-radius: calc(var(--_size) - (var(--_gap) * 2));
-            background-color: #ffffff;
+            color: $color-white;
+            background-color: currentColor;
 
             &::before,
             &::after
             {
-                content: '';
-                position: absolute;
+                @extend %common-pseudo;
                 z-index: -1;
                 width: var(--_radius);
                 aspect-ratio: 1;
                 border-radius: 50%;
-                box-shadow: calc(var(--_radius) / 2) calc(var(--_radius) / 2) 0 #ffffff;
+                box-shadow: calc(var(--_radius) / 2) calc(var(--_radius) / 2) 0 currentColor;
             }
 
             &::before{
@@ -71,17 +69,22 @@
                 justify-content: center;
                 width: var(--_size);
                 aspect-ratio: 1;
-                color: var(--color-primary);
-                border: 1px solid var(--color-primary);
-                border-radius: 50rem;
-                transition: var(--transition-primary);
+                color: $color-primary;
+                border: 1px solid $color-primary;
+                @extend %transition;
+                @extend %rounded-circle;
 
-                @media (hover:hover) {
+                &:active{
+                    color: $color-white;
+                    background-color: $color-primary;
+                }
+
+                @include hover{
                     &:hover,
                     &:focus-visible
                     {
-                        color: #ffffff;
-                        background-color: var(--color-primary);
+                        color: $color-white;
+                        background-color: $color-primary;
                     }
                 }
             }
@@ -90,29 +93,39 @@
     }
 
     &__body{
-        padding-block-start: 20px;
+        padding-block-start: toRem(20);
         padding-block-end: 5px;
-        padding-inline: 10px;
+        padding-inline: toRem(10);
 
         &__price{
-            color: var(--color-primary);
+            color: $color-primary;
         }
 
         &__title{
-            font-size: 1.6rem;
-            margin-block: 0.5rem;
+            font-size: toRem(24);
+            margin-block: toRem(10);
+
+            &__link{
+                &:hover,
+                &:focus-visible
+                {
+                    text-decoration: underline;
+                }
+            }
+
         }
 
         &__list{
             display: flex;
             gap: 6px;
+            flex-wrap: wrap;
 
             &__item{
                 display: inline-block;
-                width: 2rem;
+                width: toRem(32);
                 aspect-ratio: 1;
                 border-radius: 50%;
-                background-color: var(--_variant, var(--color-primary));
+                background-color: var(--_variant, $color-primary);
                 cursor: pointer;
             }
         }

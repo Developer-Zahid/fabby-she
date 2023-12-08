@@ -1,0 +1,32 @@
+[
+    {
+        "id": 0,
+        "imageSrc": "https://scontent-sin6-4.xx.fbcdn.net/v/t39.30808-6/380351532_151326364713056_9244673257350394_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=3635dc&_nc_ohc=wu_XzupxyK8AX-Ki1YA&_nc_ht=scontent-sin6-4.xx&oh=00_AfDNXdPAM68Gia7gmx3CNqX6ru8ll8WQWIcHRTniSiPVyQ&oe=657862C6",
+        "imageAlt": "A bag product",
+        "name": "Handbags"
+    },
+    {
+        "id": 1,
+        "imageSrc": "https://i.ibb.co/sVstvs6/banner-product.jpg",
+        "imageAlt": "A bag product",
+        "name": "Bag"
+    },
+    {
+        "id": 2,
+        "imageSrc": "https://scontent-sin6-4.xx.fbcdn.net/v/t39.30808-6/379657267_147329008446125_6478481611973749928_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=3635dc&_nc_ohc=I2XlJr7ly20AX-WP6ZM&_nc_oc=AQkCmed4M3p3oV3yJnZHpbHl4cViTi7J3M_crU2nd96KUmuxJShyYcCLWFzMBSWUzQthnbEugtpt1hA-6hkhIfZt&_nc_ht=scontent-sin6-4.xx&oh=00_AfCbiq48iAOkg1TTuel4Ofl1K9nPIS17Y4oSz7Ynu87VxA&oe=6577A97A",
+        "imageAlt": "A bag product",
+        "name": "Aurnament"
+    },
+    {
+        "id": 3,
+        "imageSrc": "https://scontent-sin6-4.xx.fbcdn.net/v/t39.30808-6/402927840_187964377715921_1570907192475903067_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=3635dc&_nc_ohc=PCG723OM5PkAX_aIRlF&_nc_ht=scontent-sin6-4.xx&oh=00_AfDZkUfDaI3kwBkuV3-tlR4wI6x4L-qk2m2_aLuaHx9iWw&oe=6578DF7F",
+        "imageAlt": "A bag product",
+        "name": "Bag"
+    },
+    {
+        "id": 4,
+        "imageSrc": "https://scontent-sin6-2.xx.fbcdn.net/v/t39.30808-6/376557151_142713428907683_3865732030807931238_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=3635dc&_nc_ohc=0TuM9aABrxIAX_p2Q1H&_nc_ht=scontent-sin6-2.xx&oh=00_AfBWrUvGRel7nBVerZf8ThgqjE1CMq1OtKf-zsm2zaANWw&oe=6578F4BA",
+        "imageAlt": "Aurnament product",
+        "name": "Aurnament"
+    }
+]

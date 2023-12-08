@@ -1,7 +1,7 @@
 import React from 'react'
 import { RouterProvider } from "react-router-dom";
 import { router } from './Routes';
-import './assets/css/main.scss'
+import './assets/scss/style.scss'
 
 export default function App() {
   return (

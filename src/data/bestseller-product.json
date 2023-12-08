@@ -1,0 +1,34 @@
+[
+    {
+        "id": 0,
+        "imageSrc": "https://i.ibb.co/sVstvs6/banner-product.jpg",
+        "imageAlt": "Bag Product",
+        "title": "MBJ Women's Solid Short Sleeve Boat Neck",
+        "price": "$20",
+        "colors": ["#282929", "#8e2b2f", "#7563a3"]
+    },
+    {
+        "id": 1,
+        "imageSrc": "https://scontent-sin6-4.xx.fbcdn.net/v/t39.30808-6/404507954_188042024374823_6081840966741830339_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=3635dc&_nc_ohc=RIeKoPgPD6UAX-fhONH&_nc_ht=scontent-sin6-4.xx&oh=00_AfCBWdk9ylCD9Gtu_VrlIleiEV4XJjkVdiATBhXxAm6vUQ&oe=65771684",
+        "imageAlt": "Bag Product",
+        "title": "Mens Casual Premium Slim Fit T-Shirts",
+        "price": "$22.5",
+        "colors": ["#282929", "#dfada9"]
+    },
+    {
+        "id": 2,
+        "imageSrc": "https://scontent-sin6-4.xx.fbcdn.net/v/t39.30808-6/399971787_180825261763166_8530632286952237170_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=3635dc&_nc_ohc=JRW-LS5-_N4AX8hoDyj&_nc_ht=scontent-sin6-4.xx&oh=00_AfA-_iEc0fVXBNOcDiz9hkgmDm6qbr0WSgNSDpN8yH97ng&oe=6577F46B",
+        "imageAlt": "Bag Product",
+        "title": "DANVOUY Womens T Shirt Casual Cotton",
+        "price": "$41.56",
+        "colors": ["#282929", "#f37b36", "#7563a3", "#28A92A"]
+    },
+    {
+        "id": 3,
+        "imageSrc": "https://scontent-sin6-4.xx.fbcdn.net/v/t39.30808-6/402927840_187964377715921_1570907192475903067_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=3635dc&_nc_ohc=PCG723OM5PkAX_aIRlF&_nc_ht=scontent-sin6-4.xx&oh=00_AfDZkUfDaI3kwBkuV3-tlR4wI6x4L-qk2m2_aLuaHx9iWw&oe=6578DF7F",
+        "imageAlt": "Bag Product",
+        "title": "Opna Women's Short Sleeve Moisture",
+        "price": "$35",
+        "colors": ["#d1bfb1"]
+    }
+]

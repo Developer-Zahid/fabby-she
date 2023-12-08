@@ -1,0 +1,140 @@
+@use '../abstracts' as *;
+
+/* Reset CSS */
+*,
+*::before,
+*::after
+{
+    box-sizing: border-box;
+	-webkit-tap-highlight-color: transparent;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+
+::selection{
+	color: $color-white;
+	background: $color-primary;
+}
+
+html{
+	font-size: 16px;
+	text-size-adjust: none;
+    background-color: $color-body;
+    transition: background-color $transition-menu;
+
+    &.active--menu{
+        overflow: hidden;
+        background-color: #ffffff;
+    }
+}
+
+html,
+body
+{
+    scroll-behavior: smooth;
+}
+
+body{
+    color: $color-black;
+    font-family: $font-primary;
+    @extend %fw-regular;
+}
+
+a{
+    text-decoration: none;
+}
+
+img,
+svg
+{
+    display: block;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+i[class^="fi"]{
+    line-height: 0
+}
+
+a,
+button
+{
+	color: inherit;
+	font-family: inherit;
+	outline: none;
+}
+
+// a,
+// a:hover,
+// a:focus,
+// a:active
+// {
+// 	color: currentColor;
+// 	text-decoration: none;
+// }
+
+// button,
+// button:hover,
+// button:focus,
+// button:active
+// {
+// }
+
+p{
+	font-family: $font-secondary;
+	font-size: toRem(14);
+	@include min-md{
+		font-size: toRem(16);
+	}
+	@include min-lg{
+		font-size: toRem(18);
+	}
+}
+
+
+/* Common Section Gap Style */
+.section-gap{
+	--_section-gap: #{toRem(80)};
+	@include max-lg{
+		--_section-gap: #{toRem(60)};
+	}
+	
+	padding: var(--_section-gap) 0;
+	&--fix{
+		padding-bottom: calc(var(--_section-gap) - $gutter);
+	}
+}
+
+/* Common Section Heading Style */
+.section-header{
+	&__title{
+		font-size: toRem(26);
+		@include min-md{
+			font-size: toRem(40);
+		}
+		@extend %fw-extrabold;
+		text-transform: capitalize;
+		margin-bottom: toRem(40);
+	}
+}
+
+.match-height > [class*="col"]{
+	display: flex;
+	flex-flow: column;
+}
+
+.match-height > [class*="col"] > *{
+	flex: 1 1 auto;
+}
+
+.section-title {
+    font-size: 2.52rem;
+}
+
+.vh-100{
+    min-height: 100vh;
+}
