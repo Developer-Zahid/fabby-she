@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import logo from '../../assets/images/logo/logo.svg'
+import Image from '../../components/image/Image'
 import './header.scss'
 
 export default function Header() {
@@ -42,9 +43,9 @@ export default function Header() {
             <NavLink to="#!" className="navbar__nav__link">Shop</NavLink>
             <NavLink to="#!" className="navbar__nav__link">Category</NavLink>
           </div>
-          <img src={logo} alt="Fabby She" height="82" loading="lazy" className="navbar__logo__image navbar__hidden" area-hidden="true" />
+          <Image className="navbar__logo__image navbar__hidden" src={logo} alt="Fabby She" height="82" area-hidden="true" />
           <NavLink to="/" className="navbar__logo">
-            <img src={logo} alt="Fabby She" height="82" loading="lazy" className="navbar__logo__image" />
+            <Image className="navbar__logo__image" src={logo} alt="Fabby She" height="82" />
           </NavLink>
           <div className="navbar__actions">
             <button type="button" className="navbar__actions__link">
