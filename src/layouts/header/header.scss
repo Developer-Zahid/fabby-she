@@ -1,3 +1,5 @@
+@use '../../assets/scss/abstracts' as *;
+
 @mixin show-mobile-menu {
     @media (max-width: 1199.98px) {
         @content
@@ -38,13 +40,15 @@
 .header{
     position: fixed;
     z-index: 9;
+    top: 0;
     left: 0;
     right: 0;
     isolation: isolate;
     background-color: var(--color-body);
+    transition: transform 0.3s $transition-ease;
 
-    @media (min-width: 1000px) {
-        padding-top: 10px;
+    &--hide{
+        transform: translateY(-100%);
     }
 }
 
@@ -106,9 +110,11 @@
             z-index: -1;
             flex-direction: column;
             justify-content: center;
-            transition: transform var(--transition-menu);
+            transition: all var(--transition-menu);
             
             &:not(.show){
+                opacity: 0;
+                visibility: hidden;
                 transform: translateY(-100%);
             }
         }

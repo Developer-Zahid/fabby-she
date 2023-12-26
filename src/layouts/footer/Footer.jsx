@@ -2,6 +2,8 @@ import React from 'react'
 import Image from '../../components/image/Image'
 import { Link } from 'react-router-dom'
 import logo from '../../assets/images/logo/logo.svg'
+import InstagramIcon from '../../assets/icons/InstagramIcon'
+import FacebookIcon from '../../assets/icons/FacebookIcon'
 import paymentMethodsData  from '../../data/payment-methods.json'
 import './footer.scss'
 
@@ -22,14 +24,14 @@ export default function Footer() {
           </nav>
           <div className="footer__social">
             <Link to="#!" target="_blank" className="footer__social__icon">
-              <i className="fa-brands fa-facebook-f"></i>
+              <FacebookIcon />
             </Link>
             <Link to="#!" target="_blank" className="footer__social__icon">
-              <i className="fa-brands fa-instagram"></i>
+              <InstagramIcon />
             </Link>
           </div>
           <div className="br"></div>
-          <p className="footer__copyright text-center">© 2023 Fabby She. All rights reserved</p>
+          <p className="footer__copyright text-center">© 2023 <strong>Fabby She</strong>. All rights reserved</p>
           <div className="footer__payments">
             {
               paymentMethodsData.map(item=>(

@@ -66,6 +66,7 @@
             aspect-ratio: 1;
             color: $color-primary;
             border: 1px solid $color-primary;
+            font-size: toRem(17);
 
             &:active{
                 color: $color-white;

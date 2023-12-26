@@ -24,7 +24,7 @@ export default function BannerSlider({slides}) {
         >
         {
             copySlides.map(slide=>(
-                <SwiperSlide>
+                <SwiperSlide key={slide.id}>
                     <figure className="banner__figure">
                         <Image className="banner__figure__image" src={slide.imageSrc} alt={slide.imageAlt} />
                     </figure>

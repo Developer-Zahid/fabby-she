@@ -109,7 +109,10 @@
             @extend %fw-extrabold;
             @extend %transition;
 
-            font-size: toRem(26);
+            font-size: toRem(20);
+            @include min-md{
+                font-size: toRem(26);
+            }
             line-height: 1;
             margin-bottom: 0;
         }

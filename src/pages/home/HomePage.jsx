@@ -6,8 +6,10 @@ import ProductCard from '../../components/product-card/ProductCard'
 import CategoryCard from '../../components/category-card/CategoryCard'
 import bannerSlidesData from '../../data/banner-slider.json'
 import bestsellerProductData from '../../data/bestseller-product.json'
+import instagramSlidesData from '../../data/instagram.json'
 import categoryData from '../../data/categories.json'
 import './homePage.scss'
+import InstagramSlider from '../../components/sliders/instagram/InstagramSlider'
 
 export default function HomePage() {
   return (
@@ -71,6 +73,14 @@ export default function HomePage() {
             }
           </div>
         </div>
+      </section>
+
+      {/* Category Section */}
+      <section className="section-gap">
+        <div className="container">
+          <h1 className="section-header__title text-center">Follow us on Instagram <Link to="https://www.instagram.com/fabbyshe.1/" target="_blank" className="text-primary">@fabbyshe</Link></h1>
+        </div>
+        <InstagramSlider slides={instagramSlidesData} />
       </section>
     </>
   )

@@ -7,10 +7,20 @@ import './header.scss'
 export default function Header() {
   const headerRef = useRef(null)
   const headerFixRef = useRef(null)
+  const lastScrollTop = useRef(0)
   const [mobileMenuActive, setMobileMenuActive] = useState(false);
 
   function handleHeaderFixHeight() {
     headerFixRef.current.style.height = (headerRef.current.offsetHeight + headerRef.current.offsetTop) + 'px';
+  }
+
+  // let lastScrollTop = 0;
+  function handleHeaderScrollToHidden(){
+    let currentScrollTop = window.pageYOffset
+    setTimeout(function(){
+      headerRef.current.classList.toggle('header--hide', currentScrollTop > lastScrollTop.current)
+      lastScrollTop.current = currentScrollTop
+    }, 200)
   }
 
   const toggleMobileMenuActive = () => {
@@ -25,9 +35,12 @@ export default function Header() {
   useEffect(() => {
     handleHeaderFixHeight()
     window.addEventListener('resize', handleHeaderFixHeight)
+    window.addEventListener('scroll', handleHeaderScrollToHidden)
+
     return () => {
-      window.removeEventListener('resize', handleHeaderFixHeight);
-    };
+      window.removeEventListener('resize', handleHeaderFixHeight)
+      window.removeEventListener('scroll', handleHeaderScrollToHidden)
+    }
   }, [])
   
 

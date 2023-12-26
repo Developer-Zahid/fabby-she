@@ -1,0 +1,44 @@
+[
+    {
+        "id": 0,
+        "imageSrc": "https://i.ibb.co/1TxM76h/1.jpg",
+        "imageAlt": "A bag product",
+        "link": "#!"
+    },
+    {
+        "id": 1,
+        "imageSrc": "https://i.ibb.co/sVstvs6/banner-product.jpg",
+        "imageAlt": "A bag product",
+        "link": "#!"
+    },
+    {
+        "id": 2,
+        "imageSrc": "https://i.ibb.co/HBgTN2B/4.jpg",
+        "imageAlt": "A bag product",
+        "link": "#!"
+    },
+    {
+        "id": 3,
+        "imageSrc": "https://i.ibb.co/YZbJKkZ/3.jpg",
+        "imageAlt": "A bag product",
+        "link": "#!"
+    },
+    {
+        "id": 4,
+        "imageSrc": "https://i.ibb.co/HBgTN2B/4.jpg",
+        "imageAlt": "Aurnament product",
+        "link": "#!"
+    },
+    {
+        "id": 5,
+        "imageSrc": "https://i.ibb.co/HBgTN2B/4.jpg",
+        "imageAlt": "A bag product",
+        "link": "#!"
+    },
+    {
+        "id": 6,
+        "imageSrc": "https://i.ibb.co/YZbJKkZ/3.jpg",
+        "imageAlt": "A bag product",
+        "link": "#!"
+    }
+]
