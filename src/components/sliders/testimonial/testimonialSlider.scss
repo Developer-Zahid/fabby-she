@@ -1,0 +1,67 @@
+@use '../../../assets/scss/abstracts' as *;
+
+.testimonial{
+    &__slide,
+    &-card,
+    &-card__rating,
+    &-card__footer
+    {
+        display: flex;
+    }
+
+    &__slide{
+        height: auto;
+    }
+
+    &-card{
+        flex-direction: column;
+        background-color: $color-white;
+        border-radius: 8px;
+        padding: toRem(30) toRem(20);
+        margin-block-end: $gutter;
+        box-shadow: 0 5px toEm(20) rgba($color-black, $alpha: 0.05);
+
+        &__rating,
+        &__footer
+        {
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        &__rating{
+            gap: 5px;
+            font-size: toRem(18);
+            color: $color-primary;
+        }
+
+        &__text{
+            color: #565656;
+            font-size: toRem(14);
+            line-height: 1.8;
+            margin-block: toRem(20);
+        }
+
+        &__footer{
+            gap: toRem(10);
+            margin-block-start: auto;
+
+            &__figure{
+                @extend %stacking-context;
+                @extend %rounded-circle;
+                @extend %overflow-hidden;
+                width: toRem(45);
+                aspect-ratio: 1;
+
+                &__bg{
+                    @extend %full-width;
+                }
+            }
+
+            &__text{
+                @extend %fw-semibold;
+                text-transform: capitalize;
+                letter-spacing: 1px;
+            }
+        }
+    }
+}

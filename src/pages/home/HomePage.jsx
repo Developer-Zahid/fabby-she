@@ -4,12 +4,14 @@ import logo from '../../assets/images/logo/logo.svg'
 import BannerSlider from '../../components/sliders/banner/BannerSlider'
 import ProductCard from '../../components/product-card/ProductCard'
 import CategoryCard from '../../components/category-card/CategoryCard'
+import InstagramSlider from '../../components/sliders/instagram/InstagramSlider'
+import TestimonialSlider from '../../components/sliders/testimonial/TestimonialSlider'
 import bannerSlidesData from '../../data/banner-slider.json'
 import bestsellerProductData from '../../data/bestseller-product.json'
+import testimonialSlidesData from '../../data/testimonial-slider.json'
 import instagramSlidesData from '../../data/instagram.json'
 import categoryData from '../../data/categories.json'
 import './homePage.scss'
-import InstagramSlider from '../../components/sliders/instagram/InstagramSlider'
 
 export default function HomePage() {
   return (
@@ -75,7 +77,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Category Section */}
+      {/* Testimonial Section */}
+      <section className="section-gap">
+        <div className="container">
+          <h1 className="section-header__title">Our Customers <span className="text-primary">love us</span></h1>
+          <TestimonialSlider slides={testimonialSlidesData} />
+        </div>
+      </section>
+
+      {/* Instagram Section */}
       <section className="section-gap">
         <div className="container">
           <h1 className="section-header__title text-center">Follow us on Instagram <Link to="https://www.instagram.com/fabbyshe.1/" target="_blank" className="text-primary">@fabbyshe</Link></h1>

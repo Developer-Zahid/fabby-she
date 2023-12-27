@@ -21,10 +21,11 @@ export default function BannerSlider({slides}) {
 				disableOnInteraction: false,
 			}}
             loop={true}
+            className="banner__slider"
         >
         {
             copySlides.map(slide=>(
-                <SwiperSlide key={slide.id}>
+                <SwiperSlide key={slide.id} className="banner__slide">
                     <figure className="banner__figure">
                         <Image className="banner__figure__image" src={slide.imageSrc} alt={slide.imageAlt} />
                     </figure>
