@@ -1,8 +1,23 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![fabbyshe](https://fabby-she.vercel.app/assets/logo-57251913.svg)
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+# Fabby She Ecommerce 
+
+This is an online based Bags, Ornaments, etc. sell shop.
+
+
+## Preview
+
+![Fabby She](https://fabby-she.vercel.app/assets/images/preview/preview.png)
+
+
+## Demo
+
+🔗Live Preview Link: https://fabby-she.vercel.app/
+
+
+## Authors
+
+- [@Developer-Zahid](https://github.com/Developer-Zahid/)
