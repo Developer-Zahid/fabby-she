@@ -104,3 +104,9 @@
         @content;
     }
 }
+
+@mixin no-motion {
+    @media (prefers-reduced-motion){
+        @content;
+    }
+}
