@@ -80,7 +80,7 @@ export default function HomePage() {
       {/* Testimonial Section */}
       <section className="section-gap">
         <div className="container">
-          <h1 className="section-header__title">Our Customers <span className="text-primary">love us</span></h1>
+          <h1 className="section-header__title mb-0">Our Customers <span className="text-primary">love us</span></h1>
           <TestimonialSlider slides={testimonialSlidesData} />
         </div>
       </section>

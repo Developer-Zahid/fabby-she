@@ -1,12 +1,78 @@
 @use '../../../assets/scss/abstracts' as *;
 
 .testimonial{
+    position: relative;
+    
+
     &__slide,
     &-card,
     &-card__rating,
     &-card__footer
     {
         display: flex;
+    }
+
+    &__slider{
+        padding-block-start: toRem(80);
+        @include min-xs{
+            padding-block-start: toRem(40);
+        }
+
+        &__arrow{
+            --_size: #{toRem(40)};
+            @include min-md{
+                --_size: #{toRem(50)};
+            }
+            --_vertical-position: 50%;
+            @include min-xs{
+                --_vertical-position: -100%;
+            }
+
+            width: var(--_size);
+            aspect-ratio: 1;
+            color: $color-primary;
+            border: 1px solid $color-primary;
+            @extend %rounded-circle;
+            @extend %transition;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+            position: absolute;
+            z-index: 2;
+            top: 0;
+            right: 0;
+            
+            &--prev{
+                transform: translateX(calc((var(--_size) + toRem(15)) * -1)) translateY(var(--_vertical-position));
+            }
+            
+            &--next{
+                transform: translateX(0) translateY(var(--_vertical-position));
+            }
+            
+            &:not(:disabled){
+                cursor: pointer;
+
+                &:active{
+                    color: $color-white;
+                    background-color: $color-primary;
+                }
+                @include hover{
+                    &:hover,
+                    &:focus-visible
+                    {
+                        color: $color-white;
+                        background-color: $color-primary;
+                    }
+                }
+            }
+
+            &:disabled{
+                color: #bbbbbb;
+                border-color: currentColor;
+            }
+        }
     }
 
     &__slide{

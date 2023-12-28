@@ -4,23 +4,43 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: toRem(18);
-    padding: toEm(18) toEm(40);
     gap: 5px;
-    color: $color-white;
-    background-color: $color-primary;
     line-height: 1;
     transition: background-color .2s ease-in-out;
 
-    &:active{
-        background-color: $color-black;
+    font-size: toRem(18);
+    padding: toEm(18) toEm(40);
+    &-sm{
+        font-size: toRem(16);
+        padding: toEm(14) toEm(20);
     }
-
+    
+    color: var(--_btn-color, #{$color-white});
+    background-color: var(--_btn-bg, #{$color-primary});
+    &:active{
+        color: var(--_btn-hover-color, #{$color-white});
+        background-color: var(--_btn-hover-bg, #{$color-black});
+    }
     @include hover{
         &:hover,
         &:focus-visible
         {
-            background-color: $color-black;
+            color: var(--_btn-hover-color, #{$color-white});
+            background-color: var(--_btn-hover-bg, #{$color-black});
         }
+    }
+
+    &-primary{
+        --_btn-color: #{$color-white};
+        --_btn-bg: #{$color-primary};
+        --_btn-hover-color: #{$color-white};
+        --_btn-hover-bg: #{$color-black};
+    }
+
+    &-dark{
+        --_btn-color: #{$color-white};
+        --_btn-bg: #{$color-black};
+        --_btn-hover-color: #{$color-white};
+        --_btn-hover-bg: #{$color-primary};
     }
 }

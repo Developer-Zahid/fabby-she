@@ -13,20 +13,20 @@ export default function Footer() {
       <div className="container">
         <div className="footer__container">
           <div className="text-center">
-            <Link to="#!" className="footer__logo">
+            <Link to="/" className="footer__logo">
               <Image className="footer__logo__image" src={logo} alt="Fabby She" />
             </Link>
           </div>
           <nav className="footer__nav">
-            <Link to="#!" className="footer__nav__link">Home</Link>
-            <Link to="#!" className="footer__nav__link">Shop</Link>
-            <Link to="#!" className="footer__nav__link">Category</Link>
+            <Link to="/" className="footer__nav__link">Home</Link>
+            <Link to="shop" className="footer__nav__link">Shop</Link>
+            <Link to="category" className="footer__nav__link">Category</Link>
           </nav>
           <div className="footer__social">
-            <Link to="#!" target="_blank" className="footer__social__icon">
+            <Link to="https://www.facebook.com/fabbyyshe" target="_blank" className="footer__social__icon">
               <FacebookIcon />
             </Link>
-            <Link to="#!" target="_blank" className="footer__social__icon">
+            <Link to="https://www.instagram.com/fabbyshe.1/" target="_blank" className="footer__social__icon">
               <InstagramIcon />
             </Link>
           </div>

@@ -12,8 +12,17 @@ import './testimonialSlider.scss'
 export default function TestimonialSlider({slides}) {
     return (
         <div className="testimonial">
+            <button type="button" className="testimonial__slider__arrow testimonial__slider__arrow--prev">
+                <i className="fi fi-br-angle-left"></i>
+            </button>
+            <button type="button" className="testimonial__slider__arrow testimonial__slider__arrow--next">
+                <i className="fi fi-br-angle-right"></i>
+            </button>
             <Swiper
-                // navigation={true}
+                navigation={{
+                    prevEl: '.testimonial__slider__arrow.testimonial__slider__arrow--prev',
+                    nextEl: '.testimonial__slider__arrow.testimonial__slider__arrow--next',
+                }}
                 modules={[ Navigation, Autoplay, Keyboard]}
                 slidesPerView={1}
                 breakpoints={{

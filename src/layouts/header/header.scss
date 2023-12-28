@@ -19,7 +19,7 @@
     transition: var(--transition-primary);
 }
 
-.navbar__nav__link:is(:hover, :focus-visible),
+.navbar__nav__link:is(.active, :hover, :focus-visible),
 .navbar__actions__link:is(:hover, :focus-visible)
 {
     color: var(--color-primary);

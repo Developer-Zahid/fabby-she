@@ -11,9 +11,9 @@ export default function ProductCard({productLink, productImage, productImageAlt,
                 <Image className="product-card__head__figure__bg" src={productImage} alt={productImageAlt} />
             </figure>
             <div className="product-card__head__action">
-                <Link to={productLink} className="product-card__head__action__btn">
-                    <i className="fi fi-rr-arrow-up-right"></i>
-                </Link>
+                <button type="button" className="product-card__head__action__btn">
+                    <i className="fi fi-rr-shopping-cart-add"></i>
+                </button>
             </div>
         </div>
         <div className="product-card__body">
@@ -23,7 +23,7 @@ export default function ProductCard({productLink, productImage, productImageAlt,
             </h3>
             {
                 productColors &&
-                <div className="product-card__body__list">
+                <div className="product-card__body__list mb-3">
                     {
                         productColors.map((items, index)=>(
                             <div key={index} className="product-card__body__list__item" style={{ "--_variant": items }}></div>
@@ -31,6 +31,7 @@ export default function ProductCard({productLink, productImage, productImageAlt,
                     }
                 </div>
             }
+            <Link to={productLink} className="btn btn-sm btn-primary w-100 rounded-pill">Buy Now <i className="fi fi-br-angle-right"></i></Link>
         </div>
     </article>
   )

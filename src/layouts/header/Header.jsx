@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import logo from '../../assets/images/logo/logo.svg'
 import Image from '../../components/image/Image'
 import './header.scss'
@@ -30,7 +30,12 @@ export default function Header() {
     }else{
       document.documentElement.classList.remove('active--menu')
     }
-  };
+  }
+
+  const hideMobileMenu = ()=>{
+    setMobileMenuActive(false)
+    document.documentElement.classList.remove('active--menu')
+  }
 
   useEffect(() => {
     handleHeaderFixHeight()
@@ -53,8 +58,8 @@ export default function Header() {
             <i className={`fi ${mobileMenuActive ? 'fi-br-cross' : 'fi-br-bars-sort' }`}></i>
           </button>
           <div className={`navbar__nav${mobileMenuActive ? ' show' : ''}`}>
-            <NavLink to="#!" className="navbar__nav__link">Shop</NavLink>
-            <NavLink to="#!" className="navbar__nav__link">Category</NavLink>
+            <NavLink to="shop" className="navbar__nav__link" onClick={hideMobileMenu}>Shop</NavLink>
+            <NavLink to="category" className="navbar__nav__link">Category</NavLink>
           </div>
           <Image className="navbar__logo__image navbar__hidden" src={logo} alt="Fabby She" height="82" area-hidden="true" />
           <NavLink to="/" className="navbar__logo">

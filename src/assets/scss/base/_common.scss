@@ -115,9 +115,12 @@ p{
 
 /* Common Section Gap Style */
 .section-gap{
-	--_section-gap: #{toRem(80)};
-	@include max-lg{
-		--_section-gap: #{toRem(60)};
+	--_section-gap: #{toRem(30)};
+	@include min-lg{
+		--_section-gap: #{toRem(50)};
+	}
+	@include min-xl{
+		--_section-gap: #{toRem(70)};
 	}
 	
 	padding: var(--_section-gap) 0;
@@ -167,4 +170,12 @@ p{
 
 .text-primary{
 	color: $color-primary;
+}
+
+.w-100{
+	width: 100%;
+}
+
+.rounded-pill{
+	@extend %rounded-pill;
 }

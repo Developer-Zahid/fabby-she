@@ -1,0 +1,32 @@
+@use '../../assets/scss/abstracts' as *;
+
+.sub-banner{
+    padding-block: toRem(40);
+    background-color: #222222;
+
+    &__title{
+        position: relative;
+        font-size: toRem(30);
+        @include min-sm{
+            font-size: toRem(40);
+        }
+        @include min-lg{
+            font-size: toRem(60);
+        }
+        letter-spacing: 1px;
+        color: $color-body;
+        @extend %fw-extrabold;
+
+        &::before{
+            // content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 10%;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background-color: $color-primary;
+            filter: blur(10px);
+        }
+    }
+}

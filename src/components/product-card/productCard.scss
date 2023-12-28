@@ -70,13 +70,26 @@
                 width: var(--_size);
                 aspect-ratio: 1;
                 color: $color-primary;
+                font-size: toRem(18);
+                background-color: transparent;
                 border: 1px solid $color-primary;
                 @extend %transition;
                 @extend %rounded-circle;
+                @extend %cursor-pointer;
 
                 &:active{
                     color: $color-white;
                     background-color: $color-primary;
+                    animation: ripple 0.25s $transition-ease forwards;
+                }
+
+                @keyframes ripple {
+                    0%{
+                        box-shadow: 0 0 0 rgba($color-primary-rgb, 0.8);
+                    }
+                    100%{
+                        box-shadow: 0 0 0 toRem(10) transparent;
+                    }
                 }
 
                 @include hover{
