@@ -47,16 +47,6 @@
         }
     }
 
-    &-nogrid{
-        .category-card{
-            margin-block-end: $gutter;
-
-            &__figure{
-                padding-top: 100%;
-            }
-        }
-    }
-
     &-card{
         --_radius: 2.5rem;
     
@@ -70,10 +60,18 @@
             position: relative;
             @extend %wh-full;
         }
+
+        @at-root .categories:not(.category-grid) &{
+            margin-block-end: $gutter;
+        }
     
         &__figure{
             @extend %stacking-context;
             @extend %wh-full;
+
+            @at-root .categories:not(.category-grid) &{
+                padding-top: 100%;
+            }
     
             &__bg{
                 @extend %full-width;

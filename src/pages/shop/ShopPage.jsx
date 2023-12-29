@@ -48,10 +48,10 @@ export default function ShopePage() {
         </section>
 
         {/* Category Section */}
-        <section className="section-gap">
+        <section className="section-gap section-gap--fix">
             <div className="container">
                 <h1 className="section-header__title">Our Collection</h1>
-                <div className="row category-nogrid">
+                <div className="row categories">
                     {
                     categoryData.map(item=>(
                         <div key={item.id} className="col-lg-4 col-md-6">

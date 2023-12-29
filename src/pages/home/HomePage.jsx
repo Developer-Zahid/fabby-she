@@ -61,7 +61,7 @@ export default function HomePage() {
       <section className="section-gap">
         <div className="container">
           <h1 className="section-header__title">Our Collection</h1>
-          <div className="category-grid">
+          <div className="categories category-grid">
             {
               categoryData.map(item=>(
                 <div key={item.id} className="category-grid__item">
