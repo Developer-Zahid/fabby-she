@@ -1,34 +1,89 @@
 [
     {
         "id": 0,
-        "imageSrc": "https://i.ibb.co/sVstvs6/banner-product.jpg",
-        "imageAlt": "Bag Product",
         "title": "MBJ Women's Solid Short Sleeve Boat Neck",
-        "price": "$20",
-        "colors": ["#282929", "#8e2b2f", "#7563a3"]
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, quis labore nemo exercitationem dolores ipsa at tempora assumenda esse placeat?",
+        "price": 20,
+        "discount": 0,
+        "variants": [
+            {
+                "imageSrc" : "https://i.ibb.co/sVstvs6/banner-product.jpg",
+                "imageAlt" : "Bag Product",
+                "color" : "#282929"
+            },
+            {
+                "imageSrc" : "https://i.ibb.co/1TxM76h/1.jpg",
+                "imageAlt" : "Bag Product",
+                "color" : "#8e2b2f"
+            },
+            {
+                "imageSrc" : "https://i.ibb.co/nDxp0zG/2.jpg",
+                "imageAlt" : "Bag Product",
+                "color" : "#7563a3"
+            }
+        ]
     },
     {
         "id": 1,
-        "imageSrc": "https://i.ibb.co/1TxM76h/1.jpg",
-        "imageAlt": "Bag Product",
         "title": "Mens Casual Premium Slim Fit T-Shirts",
-        "price": "$22.5",
-        "colors": ["#282929", "#dfada9"]
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, quis labore nemo exercitationem dolores ipsa at tempora assumenda esse placeat?",
+        "price": 22.5,
+        "discount": 5,
+        "variants": [
+            {
+                "imageSrc": "https://i.ibb.co/1TxM76h/1.jpg",
+                "imageAlt": "Bag Product",
+                "color" : "#282929"
+            },
+            {
+                "imageSrc": "https://i.ibb.co/nDxp0zG/2.jpg",
+                "imageAlt": "Bag Product",
+                "color" : "#dfada9"
+            }
+        ]
     },
     {
         "id": 2,
-        "imageSrc": "https://i.ibb.co/nDxp0zG/2.jpg",
-        "imageAlt": "Bag Product",
+        
         "title": "DANVOUY Womens T Shirt Casual Cotton",
-        "price": "$41.56",
-        "colors": ["#282929", "#f37b36", "#7563a3", "#28A92A"]
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, quis labore nemo exercitationem dolores ipsa at tempora assumenda esse placeat?",
+        "price": 41.56,
+        "discount": 5,
+        "variants": [
+            {
+                "imageSrc": "https://i.ibb.co/nDxp0zG/2.jpg",
+                "imageAlt": "Bag Product",
+                "color" : "#282929"
+            },
+            {
+                "imageSrc": "https://i.ibb.co/1TxM76h/1.jpg",
+                "imageAlt": "Bag Product",
+                "color" : "#f37b36"
+            },
+            {
+                "imageSrc": "https://i.ibb.co/YZbJKkZ/3.jpg",
+                "imageAlt": "Bag Product",
+                "color" : "#7563a3"
+            },
+            {
+                "imageSrc": "https://i.ibb.co/sVstvs6/banner-product.jpg",
+                "imageAlt": "Bag Product",
+                "color" : "#28A92A"
+            }
+        ]
     },
     {
         "id": 3,
-        "imageSrc": "https://i.ibb.co/YZbJKkZ/3.jpg",
-        "imageAlt": "Bag Product",
         "title": "Opna Women's Short Sleeve Moisture",
-        "price": "$35",
-        "colors": ["#d1bfb1"]
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, quis labore nemo exercitationem dolores ipsa at tempora assumenda esse placeat?",
+        "price": 35,
+        "discount": 5,
+        "variants": [
+            {
+                "imageSrc": "https://i.ibb.co/YZbJKkZ/3.jpg",
+                "imageAlt": "Bag Product",
+                "color" : "#d1bfb1"
+            }
+        ]
     }
 ]

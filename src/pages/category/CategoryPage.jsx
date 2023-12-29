@@ -50,12 +50,11 @@ export default function CategoryPage() {
                             bestsellerProductData.map(item=>(
                                 <div key={item.id} className="col-xl-3 col-lg-4 col-md-6">
                                     <ProductCard
-                                        productLink="#!"
-                                        productImage={item.imageSrc}
-                                        productImageAlt={item.imageAlt}
+                                        productLink={`/product/${item.id}`}
                                         productTitle={item.title}
                                         productPrice={item.price}
-                                        productColors={item.colors}
+                                        productDiscount={item.discount}
+                                        productVariants={item.variants}
                                     />
                                 </div>
                             ))

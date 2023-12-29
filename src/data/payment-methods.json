@@ -1,12 +1,12 @@
 [
     {
         "id": 0,
-        "imageSrc": "./assets/images/payments/bkash.png",
+        "imageSrc": "/assets/images/payments/bkash.png",
         "imageAlt": "bkash"
     },
     {
         "id": 1,
-        "imageSrc": "./assets/images/payments/nagad.png",
+        "imageSrc": "/assets/images/payments/nagad.png",
         "imageAlt": "nagad"
     }
 ]
