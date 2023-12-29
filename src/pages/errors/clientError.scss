@@ -1,0 +1,65 @@
+@use '../../assets/scss/abstracts' as *;
+
+.error{
+    @include min-lg{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 100vh;
+    }
+
+    &__figure{
+        @extend %wh-full;
+        
+        &__bg{
+            background-color: $color-primary !important;
+            @include min-lg{
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                width: 50%;
+            }
+            @include max-md{
+                @include min-xs{
+                    height: 40vh;
+                }
+            }
+        }
+    }
+
+    &__content{
+        padding-block: toRem(30);
+        padding-inline: toRem(20);
+        @include min-sm{
+            text-align: center;
+            padding: toRem(50);
+        }
+        @include min-lg{
+            align-self: center;
+            text-align: unset;
+        }
+    }
+
+    &__title{
+        font-size: clamp(toRem(35), 4vw, toRem(65));
+        @extend %fw-extrabold;
+    }
+
+    &__text{
+        color: #525252;
+        margin-block-start: toRem(10);
+        margin-block-end: toRem(20);
+        @include min-sm{
+            font-size: toRem(18);
+        }
+        @include min-lg{
+            margin-block-end: toRem(40);
+        }
+        @include min-xl{
+            max-width: 70%;
+        }
+        @include min-xxl{
+            font-size: toRem(22);
+        }
+    }
+}

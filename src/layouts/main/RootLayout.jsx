@@ -8,7 +8,8 @@ export default function RootLayout() {
 
   useEffect(() => {
     window.requestAnimationFrame(() => {
-      window.scrollTo(0, 0);
+      document.documentElement.classList.remove('active--menu')
+      window.scrollTo(0, 0)
     })
   }, [pathname])
 
