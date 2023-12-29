@@ -59,7 +59,7 @@ export default function Header() {
           </button>
           <div className={`navbar__nav${mobileMenuActive ? ' show' : ''}`}>
             <NavLink to="shop" className="navbar__nav__link" onClick={hideMobileMenu}>Shop</NavLink>
-            <NavLink to="category" className="navbar__nav__link">Category</NavLink>
+            <NavLink to="category" className="navbar__nav__link" onClick={hideMobileMenu}>Category</NavLink>
           </div>
           <Image className="navbar__logo__image navbar__hidden" src={logo} alt="Fabby She" height="82" area-hidden="true" />
           <NavLink to="/" className="navbar__logo">

@@ -24,7 +24,7 @@ export default function HomePage() {
               <div className="banner__content">
                 <img className="banner__logo" src={logo} alt="fabby she" />
                 <h1 className="banner__title">Empowering Fashion for the trendsetters</h1>
-                <Link to="#!" className="btn btn-primary">Shop Now <i className="fi fi-br-angle-right"></i></Link>
+                <Link to="/products" className="btn btn-primary">Shop Now <i className="fi fi-br-angle-right"></i></Link>
               </div>
             </div>
             <div className="col-lg-6 col-md-8 mx-auto">
