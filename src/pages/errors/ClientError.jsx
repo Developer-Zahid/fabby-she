@@ -18,7 +18,7 @@ export default function ClientError() {
       <div className="error__content">
         <h1 className="error__title">Oops! Page Not Found</h1>
         <p className="error__text">It seems like the page you're looking for doesn't exist or has been moved</p>
-        <Link to="/" className="btn btn-primary">Take me home<i class="fi fi-br-angle-right"></i></Link>
+        <Link to="/" className="btn btn-primary">Take me home<i className="fi fi-br-angle-right"></i></Link>
       </div>
     </section>
   )
