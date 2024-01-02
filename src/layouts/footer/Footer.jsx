@@ -14,7 +14,7 @@ export default function Footer() {
         <div className="footer__container">
           <div className="text-center">
             <Link to="/" className="footer__logo">
-              <Image className="footer__logo__image" src={logo} alt="Fabby She" />
+              <Image className="footer__logo__image" src={logo} alt="Fabby She" height="82" />
             </Link>
           </div>
           <nav className="footer__nav">
