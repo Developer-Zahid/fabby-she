@@ -1,22 +1,22 @@
 [
-    {
-      "id": 0,
-      "imageSrc": "https://i.ibb.co/1TxM76h/1.jpg",
-      "imageAlt": "A bag product"
-    },
-    {
-      "id": 1,
-      "imageSrc": "https://i.ibb.co/sVstvs6/banner-product.jpg",
-      "imageAlt": "A bag product"
-    },
-    {
-      "id": 2,
-      "imageSrc": "https://i.ibb.co/nDxp0zG/2.jpg",
-      "imageAlt": "A camera product"
-    },
-    {
-      "id": 3,
-      "imageSrc": "https://i.ibb.co/YZbJKkZ/3.jpg",
-      "imageAlt": "A watch product"
-    }
+  {
+    "id": 0,
+    "imageSrc": "https://i.ibb.co/1TxM76h/1.jpg",
+    "imageAlt": "A bag product"
+  },
+  {
+    "id": 1,
+    "imageSrc": "https://i.ibb.co/sVstvs6/banner-product.jpg",
+    "imageAlt": "A bag product"
+  },
+  {
+    "id": 2,
+    "imageSrc": "https://i.ibb.co/nDxp0zG/2.jpg",
+    "imageAlt": "A camera product"
+  },
+  {
+    "id": 3,
+    "imageSrc": "https://i.ibb.co/YZbJKkZ/3.jpg",
+    "imageAlt": "A watch product"
+  }
 ]

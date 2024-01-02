@@ -6,8 +6,8 @@
     justify-content: center;
     gap: 5px;
     line-height: 1;
+    border: 0;
     transition: background-color .2s ease-in-out;
-
     @extend %fw-medium;
 
     font-size: toRem(18);
@@ -30,6 +30,10 @@
             color: var(--_btn-hover-color, #{$color-white});
             background-color: var(--_btn-hover-bg, #{$color-black});
         }
+    }
+
+    &:not(:disabled){
+        @extend %cursor-pointer;
     }
 
     &-primary{

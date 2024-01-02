@@ -31,15 +31,13 @@ export default function ProductCard({productLink, productTitle, productPrice, pr
                 <h3 className="product-card__body__title">
                     <Link to={productLink} className="product-card__body__title__link">{productTitle}</Link>
                 </h3>
-                {
-                    <div className="product-card__body__list mb-3">
-                        {
-                            productVariants.map((item, index)=>(
-                                <button key={index} type="button" onClick={() => handleToggleProductOnClick(index)} className={`product-card__body__list__item ${activeIndex === index ? 'active' : ''}`} style={{ "--_variant": item.color }}></button>
-                            ))
-                        }
-                    </div>
-                }
+                <div className="product-card__body__list mb-3">
+                    {
+                        productVariants.map((item, index)=>(
+                            <button key={index} type="button" onClick={() => handleToggleProductOnClick(index)} className={`product-card__body__list__item ${activeIndex === index ? 'active' : ''}`} style={{ "--_variant": item.color }}></button>
+                        ))
+                    }
+                </div>
                 <Link to={productLink} className="btn btn-sm btn-primary w-100 rounded-pill">Buy Now <i className="fi fi-br-angle-right"></i></Link>
             </div>
         </article>

@@ -52,8 +52,8 @@
             }
             
             &:not(:disabled){
-                cursor: pointer;
-
+                @extend %cursor-pointer;
+                
                 &:active{
                     color: $color-white;
                     background-color: $color-primary;

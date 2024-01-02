@@ -1,0 +1,123 @@
+@use '../../assets/scss/abstracts' as *;
+
+.product-details{
+    &__title{
+        font-size: toRem(30);
+        @include min-md{
+            font-size: toRem(40);
+        }
+        @include min-xl{
+            font-size: toRem(50);
+        }
+        @extend %fw-extrabold;
+        margin-block-end: toRem(20);
+    }
+
+    &__price{
+        font-size: toRem(30);
+    }
+
+    &__description{
+        color: $color-gray;
+        font-size: toRem(16);
+        margin-block: toRem(20);
+    }
+
+    &__sub-title{
+        font-size: toRem(20);
+        margin-block-end: toRem(10);
+    }
+
+    &__actions{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+
+        > *{
+            border-radius: 5px;
+
+            @include max-sm{
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+    }
+
+    &__slider{
+        &-wrapper{
+            position: relative;
+            
+            @include hover{
+                &:hover,
+                &:focus-within
+                {
+                    .product-details__slider__arrow{
+                        --_position-x: 50%;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+        
+        &__arrow{
+            --_position-x: 10%;
+            --_size: #{toRem(50)};
+
+            position: absolute;
+            z-index: 2;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: var(--_size);
+            height: var(--_size);
+            @extend %rounded-circle;
+            @extend %cursor-pointer;
+            @extend %transition;
+            background-color: $color-white;
+            color: $color-primary;
+            border: 1px solid $color-primary;
+            top: 50%;
+            
+            &--prev{
+                left: 0;
+                transform: translateX(var(--_position-x)) translateY(-50%);
+            }
+            &--next{
+                right: 0;
+                transform: translateX(calc(var(--_position-x) * -1)) translateY(-50%);
+            }
+
+            &:active{
+                color: $color-white;
+                background-color: $color-primary;
+            }
+            
+            @include hover{
+                --_position-x: 0%;
+                opacity: 0;
+
+                &:hover,
+                &:focus-visible
+                {
+                    color: $color-white;
+                    background-color: $color-primary;
+                }
+            }
+        }
+    }
+
+    &__card{
+        @extend %stacking-context;
+        padding-block-start: 110%;
+        margin-block-end: toRem(20);
+        @include min-sm{
+            @include max-md{
+                padding-block-start: 60%;
+            }
+        }
+
+        &__bg{
+            @extend %full-width;
+        }
+    }
+}

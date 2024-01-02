@@ -1,6 +1,7 @@
 [
     {
         "id": 0,
+        "SKU": "FS-00",
         "title": "MBJ Women's Solid Short Sleeve Boat Neck",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, quis labore nemo exercitationem dolores ipsa at tempora assumenda esse placeat?",
         "price": 20,
@@ -25,6 +26,7 @@
     },
     {
         "id": 1,
+        "SKU": "FS-01",
         "title": "Mens Casual Premium Slim Fit T-Shirts",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, quis labore nemo exercitationem dolores ipsa at tempora assumenda esse placeat?",
         "price": 22.5,
@@ -44,7 +46,7 @@
     },
     {
         "id": 2,
-        
+        "SKU": "FS-02",
         "title": "DANVOUY Womens T Shirt Casual Cotton",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, quis labore nemo exercitationem dolores ipsa at tempora assumenda esse placeat?",
         "price": 41.56,
@@ -74,6 +76,7 @@
     },
     {
         "id": 3,
+        "SKU": "FS-03",
         "title": "Opna Women's Short Sleeve Moisture",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, quis labore nemo exercitationem dolores ipsa at tempora assumenda esse placeat?",
         "price": 35,
