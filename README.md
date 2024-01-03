@@ -1,5 +1,5 @@
 
-![fabbyshe](https://fabby-she.vercel.app/assets/logo-57251913.svg)
+![fabbyshe](https://fabby-she.vercel.app/assets/images/favicon/favicon.svg)
 
 
 
