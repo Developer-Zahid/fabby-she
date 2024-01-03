@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import logo from '../../assets/images/logo/logo.svg'
 import Image from '../../components/image/Image'
 import './header.scss'
@@ -14,7 +14,6 @@ export default function Header() {
     headerFixRef.current.style.height = (headerRef.current.offsetHeight + headerRef.current.offsetTop) + 'px';
   }
 
-  // let lastScrollTop = 0;
   function handleHeaderScrollToHidden(){
     let currentScrollTop = window.pageYOffset
     setTimeout(function(){
@@ -58,6 +57,7 @@ export default function Header() {
             <i className={`fi ${mobileMenuActive ? 'fi-br-cross' : 'fi-br-bars-sort' }`}></i>
           </button>
           <div className={`navbar__nav${mobileMenuActive ? ' show' : ''}`}>
+            <NavLink to="/" className="navbar__nav__link" onClick={hideMobileMenu}>Home</NavLink>
             <NavLink to="shop" className="navbar__nav__link" onClick={hideMobileMenu}>Shop</NavLink>
             <NavLink to="category" className="navbar__nav__link" onClick={hideMobileMenu}>Category</NavLink>
           </div>
@@ -69,10 +69,10 @@ export default function Header() {
             <button type="button" className="navbar__actions__link">
               <i className="fi fi-rr-search"></i>
             </button>
-            <button type="button" className="navbar__actions__link">
+            <NavLink to="cart" className="navbar__actions__link">
               <span className="navbar__actions__link__count">0</span>
               <i className="fi fi-rr-shopping-cart"></i>
-            </button>
+            </NavLink>
           </div>
         </nav>
       </div>

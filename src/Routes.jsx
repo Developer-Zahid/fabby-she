@@ -10,8 +10,8 @@ import HomePage from "./pages/home/HomePage";
 import SingleProduct from "./pages/product/SingleProduct";
 import ShopePage from "./pages/shop/ShopPage";
 import bestsellerProductData from './data/bestseller-product.json'
+import CartPage from "./pages/cart/CartPage";
 
-  
 export const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path="/" element={ <RootLayout />} errorElement={<ClientError />}>
@@ -25,6 +25,7 @@ export const router = createBrowserRouter(
                 }}
             />
             <Route path="category" element={<CategoryPage />} />
+            <Route path="cart" element={<CartPage />} />
         </Route>
     )
 )

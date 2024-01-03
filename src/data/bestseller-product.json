@@ -8,16 +8,19 @@
         "discount": 0,
         "variants": [
             {
+                "_id": 0,
                 "imageSrc" : "https://i.ibb.co/sVstvs6/banner-product.jpg",
                 "imageAlt" : "Bag Product",
                 "color" : "#282929"
             },
             {
+                "_id": 1,
                 "imageSrc" : "https://i.ibb.co/1TxM76h/1.jpg",
                 "imageAlt" : "Bag Product",
                 "color" : "#8e2b2f"
             },
             {
+                "_id": 2,
                 "imageSrc" : "https://i.ibb.co/nDxp0zG/2.jpg",
                 "imageAlt" : "Bag Product",
                 "color" : "#7563a3"
@@ -33,11 +36,13 @@
         "discount": 5,
         "variants": [
             {
+                "_id": 0,
                 "imageSrc": "https://i.ibb.co/1TxM76h/1.jpg",
                 "imageAlt": "Bag Product",
                 "color" : "#282929"
             },
             {
+                "_id": 1,
                 "imageSrc": "https://i.ibb.co/nDxp0zG/2.jpg",
                 "imageAlt": "Bag Product",
                 "color" : "#dfada9"
@@ -53,21 +58,25 @@
         "discount": 5,
         "variants": [
             {
+                "_id": 0,
                 "imageSrc": "https://i.ibb.co/nDxp0zG/2.jpg",
                 "imageAlt": "Bag Product",
                 "color" : "#282929"
             },
             {
+                "_id": 1,
                 "imageSrc": "https://i.ibb.co/1TxM76h/1.jpg",
                 "imageAlt": "Bag Product",
                 "color" : "#f37b36"
             },
             {
+                "_id": 2,
                 "imageSrc": "https://i.ibb.co/YZbJKkZ/3.jpg",
                 "imageAlt": "Bag Product",
                 "color" : "#7563a3"
             },
             {
+                "_id": 3,
                 "imageSrc": "https://i.ibb.co/sVstvs6/banner-product.jpg",
                 "imageAlt": "Bag Product",
                 "color" : "#28A92A"
@@ -83,6 +92,7 @@
         "discount": 5,
         "variants": [
             {
+                "_id": 0,
                 "imageSrc": "https://i.ibb.co/YZbJKkZ/3.jpg",
                 "imageAlt": "Bag Product",
                 "color" : "#d1bfb1"

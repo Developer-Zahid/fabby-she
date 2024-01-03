@@ -1,23 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useLoaderData } from 'react-router-dom'
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay, Keyboard, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-
 import Image from '../../components/image/Image';
-import QuantitySpinner from '../../components/quantity-spinner/QuantitySpinner';
+import QuantitySpinner from '../../components/quantity-spinner/QuantitySpinner'
+import TestimonialSlider from '../../components/sliders/testimonial/TestimonialSlider'
+import testimonialSlidesData from '../../data/testimonial-slider.json'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Autoplay, Keyboard, Pagination } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/navigation'
 import './singleProduct.scss'
 
 export default function SingleProduct() {
-    const {SKU, title, description, price, discount, variants} = useLoaderData()
+    const {id, SKU, title, description, price, discount, variants} = useLoaderData()
 
+    const [currentProductTestimonialData, setCurrentProductTestimonialData] = useState([])
+
+    useEffect(() => {
+      setCurrentProductTestimonialData(testimonialSlidesData.filter(item=> item.productId ===  id))
+    }, [])
+    
     const getCurrentQuantity = (quantity) => {
         console.log('Current Quantity:', quantity)
     }
 
-    const customPagination = {
+    const customSingleProductPagination = {
         el: ".product-card__body__list",
         clickable: true,
         renderBullet: function (index, className) {
@@ -27,6 +33,7 @@ export default function SingleProduct() {
 
     return (
         <>
+        {/* Product Details Section */}
         <section className="product-details section-gap">
             <div className="container">
                 <div className="row flex-xl-row-reverse justify-content-between">
@@ -43,15 +50,15 @@ export default function SingleProduct() {
                                     prevEl: '.product-details__slider__arrow.product-details__slider__arrow--prev',
                                     nextEl: '.product-details__slider__arrow.product-details__slider__arrow--next',
                                 }}
-                                pagination={customPagination}
+                                pagination={customSingleProductPagination}
                                 modules={[ Navigation, Autoplay, Keyboard, Pagination]}
                                 slidesPerView={1}
                                 grabCursor={true}
                                 loop={true}
                                 keyboard={{enabled: true}}
                                 autoplay={{
-                                    delay: 2500,
-                                    disableOnInteraction: false,
+                                    delay: 3000,
+                                    disableOnInteraction: true,
                                 }}
                                 className="product-details__slider"
                             >
@@ -67,7 +74,7 @@ export default function SingleProduct() {
                             </Swiper>
                         </div>
                     </div>
-                    <div className="col-xl-6 col-lg-6">
+                    <div className="col-lg-6">
                         <h1 className="product-details__title">{title}</h1>
                         <h2 className="product-details__price">${price} { discount > 0 && <small className="product-card__body__price__discount">${price - discount}</small> }</h2>
                         <p className="product-details__description">{description}</p>
@@ -82,6 +89,14 @@ export default function SingleProduct() {
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        {/* Testimonial Section */}
+        <section className="section-gap pt-md-0">
+            <div className="container">
+                <h1 className="section-header__title mb-0">Customer <span className="text-primary">reviews</span></h1>
+                <TestimonialSlider slides={currentProductTestimonialData} />
             </div>
         </section>
         </>

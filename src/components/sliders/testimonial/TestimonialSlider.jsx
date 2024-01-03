@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay, Keyboard } from 'swiper/modules';
@@ -27,17 +27,17 @@ export default function TestimonialSlider({slides}) {
                 slidesPerView={1}
                 breakpoints={{
                     768: {
-                    slidesPerView: 2,
+                        slidesPerView: 2,
                     },
                     1200: {
-                    slidesPerView: 3,
+                        slidesPerView: 3,
                     },
                 }}
                 spaceBetween={24}
                 grabCursor={true}
                 keyboard={{enabled: true}}
                 autoplay={{
-                    delay: 2500,
+                    delay: 3000,
                     disableOnInteraction: false,
                 }}
                 className="testimonial__slider"

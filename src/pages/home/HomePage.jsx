@@ -35,7 +35,7 @@ export default function HomePage() {
       </section>
 
       {/* Product Section */}
-      <section className="section-gap section-gap--fix">
+      <section className="section-gap">
         <div className="container">
           <h1 className="section-header__title">Our Bestseller Product</h1>
           <div className="row match-height">
@@ -52,6 +52,9 @@ export default function HomePage() {
                 </div>
               ))
             }
+          </div>
+          <div className="text-center pt-4">
+            <Link to="/shop" className="btn btn-primary">View All <i className="fi fi-br-angle-right"></i></Link>
           </div>
         </div>
       </section>
@@ -72,6 +75,9 @@ export default function HomePage() {
                 </div>
               ))
             }
+          </div>
+          <div className="text-center pt-5">
+            <Link to="/category" className="btn btn-primary">View All <i className="fi fi-br-angle-right"></i></Link>
           </div>
         </div>
       </section>

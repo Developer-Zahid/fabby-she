@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import ProductCard from '../../components/product-card/ProductCard'
 import CategoryCard from '../../components/category-card/CategoryCard'
 import SubBanner from '../../sections/sub-banner/SubBanner'
@@ -59,6 +60,9 @@ export default function CategoryPage() {
                                 </div>
                             ))
                         }
+                    </div>
+                    <div className="text-center pt-4">
+                        <Link to="/shop" className="btn btn-primary">View All <i className="fi fi-br-angle-right"></i></Link>
                     </div>
                 </div>
             </section>
