@@ -12,6 +12,7 @@ import testimonialSlidesData from '../../data/testimonial-slider.json'
 import instagramSlidesData from '../../data/instagram.json'
 import categoryData from '../../data/categories.json'
 import './homePage.scss'
+import RightIcon from '../../assets/icons/RightIcon'
 
 export default function HomePage() {
   return (
@@ -24,7 +25,7 @@ export default function HomePage() {
               <div className="banner__content">
                 <img className="banner__logo" src={logo} alt="fabby she" height="82" />
                 <h1 className="banner__title">Empowering Fashion for the trendsetters</h1>
-                <Link to="/products" className="btn btn-primary">Shop Now <i className="fi fi-br-angle-right"></i></Link>
+                <Link to="/products" className="btn btn-primary">Shop Now <RightIcon/></Link>
               </div>
             </div>
             <div className="col-lg-6 col-md-8 mx-auto">
@@ -43,6 +44,7 @@ export default function HomePage() {
               bestsellerProductData.map(item=>(
                 <div key={item.id} className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                   <ProductCard
+                    productId={item.id}
                     productLink={`/product/${item.id}`}
                     productTitle={item.title}
                     productPrice={item.price}
@@ -54,7 +56,7 @@ export default function HomePage() {
             }
           </div>
           <div className="text-center pt-4">
-            <Link to="/shop" className="btn btn-primary">View All <i className="fi fi-br-angle-right"></i></Link>
+            <Link to="/shop" className="btn btn-primary">View All <RightIcon/></Link>
           </div>
         </div>
       </section>
@@ -77,7 +79,7 @@ export default function HomePage() {
             }
           </div>
           <div className="text-center pt-5">
-            <Link to="/category" className="btn btn-primary">View All <i className="fi fi-br-angle-right"></i></Link>
+            <Link to="/category" className="btn btn-primary">View All <RightIcon/></Link>
           </div>
         </div>
       </section>

@@ -1,13 +1,28 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import useCartStore from '../../app/store/cartStore'
 import Image from '../image/Image'
+import { v4 as uuidv4 } from 'uuid';
 import './productCard.scss'
+import CartPlusIcon from '../../assets/icons/CartPlusIcon';
+import RightIcon from '../../assets/icons/RightIcon';
 
-export default function ProductCard({productLink, productTitle, productPrice, productDiscount, productVariants}) {
+export default function ProductCard({productId, productLink, productTitle, productPrice, productDiscount, productVariants}) {
     const [activeIndex, setActiveIndex] = useState(0)
+    const cartData = useCartStore((state)=> state.cart)
+    const addCart = useCartStore((state)=> state.addCart)
 
     const handleToggleProductOnClick = (index) => {
         setActiveIndex(index === activeIndex ? 0 : index)
+    }
+
+    const handleAddToCartOnClick = ()=>{
+        addCart({
+            id: uuidv4(),
+            productId: productId,
+            variantsId: activeIndex,
+            quantity: 1
+        })
     }
 
     return (
@@ -21,13 +36,17 @@ export default function ProductCard({productLink, productTitle, productPrice, pr
                     }
                 </figure>
                 <div className="product-card__head__action">
-                    <button type="button" className="product-card__head__action__btn">
-                        <i className="fi fi-rr-shopping-cart-add"></i>
+                    <button type="button" className="product-card__head__action__btn" onClick={handleAddToCartOnClick}>
+                        <CartPlusIcon />
                     </button>
                 </div>
             </div>
             <div className="product-card__body">
-                <h2 className="product-card__body__price">${productPrice} { productDiscount > 0 && <small className="product-card__body__price__discount">${productPrice - productDiscount}</small> }</h2>
+                {
+                    productDiscount > 0 ?
+                    <h2 className="product-card__body__price">${productPrice - productDiscount}  <small className="product-card__body__price__discount">${productPrice}</small></h2> :
+                    <h2 className="product-card__body__price">${productPrice}</h2>
+                }
                 <h3 className="product-card__body__title">
                     <Link to={productLink} className="product-card__body__title__link">{productTitle}</Link>
                 </h3>
@@ -38,7 +57,7 @@ export default function ProductCard({productLink, productTitle, productPrice, pr
                         ))
                     }
                 </div>
-                <Link to={productLink} className="btn btn-sm btn-primary w-100 rounded-pill">Buy Now <i className="fi fi-br-angle-right"></i></Link>
+                <Link to={productLink} className="btn btn-sm btn-primary w-100 rounded-pill">Buy Now <RightIcon /></Link>
             </div>
         </article>
     )

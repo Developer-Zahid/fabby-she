@@ -1,5 +1,10 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import useCartStore from '../../app/store/cartStore'
+import CartIcon from '../../assets/icons/CartIcon'
+import SearchIcon from '../../assets/icons/SearchIcon'
+import OpenMenuIcon from '../../assets/icons/OpenMenuIcon'
+import CloseMenuIcon from '../../assets/icons/CloseMenuIcon'
 import logo from '../../assets/images/logo/logo.svg'
 import Image from '../../components/image/Image'
 import './header.scss'
@@ -9,6 +14,7 @@ export default function Header() {
   const headerFixRef = useRef(null)
   const lastScrollTop = useRef(0)
   const [mobileMenuActive, setMobileMenuActive] = useState(false);
+  const cartData = useCartStore((state)=> state.cart)
 
   function handleHeaderFixHeight() {
     headerFixRef.current.style.height = (headerRef.current.offsetHeight + headerRef.current.offsetTop) + 'px';
@@ -37,6 +43,7 @@ export default function Header() {
   }
 
   useEffect(() => {
+    console.log('Header Render');
     handleHeaderFixHeight()
     window.addEventListener('resize', handleHeaderFixHeight)
     window.addEventListener('scroll', handleHeaderScrollToHidden)
@@ -54,7 +61,11 @@ export default function Header() {
       <div className="container">
         <nav className="navbar">
           <button type="button" className="navbar__toggle" onClick={toggleMobileMenuActive}>
-            <i className={`fi ${mobileMenuActive ? 'fi-br-cross' : 'fi-br-bars-sort' }`}></i>
+            {
+              mobileMenuActive ?
+              <CloseMenuIcon /> :
+              <OpenMenuIcon />
+            }
           </button>
           <div className={`navbar__nav${mobileMenuActive ? ' show' : ''}`}>
             <NavLink to="/" className="navbar__nav__link" onClick={hideMobileMenu}>Home</NavLink>
@@ -67,11 +78,11 @@ export default function Header() {
           </NavLink>
           <div className="navbar__actions">
             <button type="button" className="navbar__actions__link">
-              <i className="fi fi-rr-search"></i>
+              <SearchIcon />
             </button>
             <NavLink to="cart" className="navbar__actions__link">
-              <span className="navbar__actions__link__count">0</span>
-              <i className="fi fi-rr-shopping-cart"></i>
+              <span className="navbar__actions__link__count">{cartData.length}</span>
+              <CartIcon />
             </NavLink>
           </div>
         </nav>

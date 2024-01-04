@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import UpRightIcon from '../../assets/icons/UpRightIcon'
 import Image from '../../components/image/Image'
 import './categoryCard.scss'
 
@@ -15,7 +16,7 @@ export default function CategoryCard({categoryImageSrc, categoryImageAlt, catego
             </Link>
             <div className="category-card__action">
                 <Link to="#!" className="category-card__action__btn">
-                    <i className="fi fi-rr-arrow-up-right"></i>
+                    <UpRightIcon />
                 </Link>
             </div>
         </div>

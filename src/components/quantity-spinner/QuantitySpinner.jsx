@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import MinusIcon from '../../assets/icons/MinusIcon';
+import PlusIcon from '../../assets/icons/PlusIcon';
 import './quantitySpinner.scss'
 
 export default function QuantitySpinner({sendCurrentQuantity, max}) {
@@ -29,11 +31,11 @@ export default function QuantitySpinner({sendCurrentQuantity, max}) {
     return (
         <div className="spinner">
             <button type="button" className="spinner__btn spinner__btn--decrease" onClick={handleDecreaseClick}>
-                <i className="fi fi-br-minus"></i>
+                <MinusIcon />
             </button>
             <input type="number" className="spinner__input" value={currentQuantity} min={minQuantity} max={maxQuantity} onChange={handleInputChange} />
             <button type="button" className="spinner__btn spinner__btn--increase" onClick={handleIncreaseClick}>
-                <i className="fi fi-br-plus"></i>
+                <PlusIcon />
             </button>
         </div>
     )

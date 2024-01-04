@@ -4,11 +4,12 @@ import SubBanner from '../../sections/sub-banner/SubBanner'
 import Image from '../../components/image/Image'
 import QuantitySpinner from '../../components/quantity-spinner/QuantitySpinner'
 import productData from '../../data/bestseller-product.json'
-import cartData from '../../data/cart.json'
 import './cartPage.scss'
+import useCartStore from '../../app/store/cartStore'
 
 export default function CartPage() {
-
+    const cartData = useCartStore((state)=> state.cart)
+    
     const getProductDetails = (productId, variantsId) => {
         const product = productData.find(product => product.id === productId)
         if (product) {
@@ -21,11 +22,7 @@ export default function CartPage() {
     const [cartProductData, setCartProductData] = useState([])
 
     useEffect(() => {
-        const transformedCartData = cartData.map(item => {
-            return getProductDetails(item.productId, item.variantsId)
-        })
-
-        setCartProductData(transformedCartData)
+        setCartProductData(cartData.map(item => getProductDetails(item.productId, item.variantsId)))
     }, [cartData])
     
     const getCurrentQuantity = (quantity) => {
@@ -48,8 +45,8 @@ export default function CartPage() {
                             </div>
                             <div className="cart__list">
                                 {
-                                    cartProductData.map(item=>(
-                                        <div key={item.id} className="cart__item">
+                                    cartProductData.map((item, index)=>(
+                                        <div key={index} className="cart__item">
                                             <figure className="cart__item__figure">
                                                 <Image className="cart__item__figure__bg" src={item.variant.imageSrc} alt={item.variant.imageAlt} />
                                             </figure>

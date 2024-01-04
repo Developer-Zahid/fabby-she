@@ -6,6 +6,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 
 import StarIcon from '../../../assets/icons/StarIcon'
+import LeftIcon from '../../../assets/icons/LeftIcon';
+import RightIcon from '../../../assets/icons/RightIcon';
 import Image from '../../image/Image'
 import './testimonialSlider.scss'
 
@@ -13,10 +15,10 @@ export default function TestimonialSlider({slides}) {
     return (
         <div className="testimonial">
             <button type="button" className="testimonial__slider__arrow testimonial__slider__arrow--prev">
-                <i className="fi fi-br-angle-left"></i>
+                <LeftIcon />
             </button>
             <button type="button" className="testimonial__slider__arrow testimonial__slider__arrow--next">
-                <i className="fi fi-br-angle-right"></i>
+                <RightIcon />
             </button>
             <Swiper
                 navigation={{

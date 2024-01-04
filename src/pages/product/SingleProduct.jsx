@@ -4,6 +4,8 @@ import Image from '../../components/image/Image';
 import QuantitySpinner from '../../components/quantity-spinner/QuantitySpinner'
 import TestimonialSlider from '../../components/sliders/testimonial/TestimonialSlider'
 import testimonialSlidesData from '../../data/testimonial-slider.json'
+import LeftIcon from '../../assets/icons/LeftIcon';
+import RightIcon from '../../assets/icons/RightIcon';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay, Keyboard, Pagination } from 'swiper/modules'
 import 'swiper/css'
@@ -40,10 +42,10 @@ export default function SingleProduct() {
                     <div className="col-xl-5 col-lg-6">
                         <div className="product-details__slider-wrapper">
                             <button type="button" className="product-details__slider__arrow product-details__slider__arrow--prev">
-                                <i className="fi fi-br-angle-left"></i>
+                                <LeftIcon />
                             </button>
                             <button type="button" className="product-details__slider__arrow product-details__slider__arrow--next">
-                                <i className="fi fi-br-angle-right"></i>
+                                <RightIcon />
                             </button>
                             <Swiper
                                 navigation={{
@@ -76,7 +78,11 @@ export default function SingleProduct() {
                     </div>
                     <div className="col-lg-6">
                         <h1 className="product-details__title">{title}</h1>
-                        <h2 className="product-details__price">${price} { discount > 0 && <small className="product-card__body__price__discount">${price - discount}</small> }</h2>
+                        {
+                            discount > 0 ?
+                            <h2 className="product-details__price">${price - discount} <small className="product-card__body__price__discount">${price}</small></h2> :
+                            <h2 className="product-details__price">${price}</h2>
+                        }
                         <p className="product-details__description">{description}</p>
                         <h3 className="product-details__sub-title">SKU: <span className="text-primary">{SKU}</span></h3>
                         <h3 className="product-details__sub-title">Colors:</h3>

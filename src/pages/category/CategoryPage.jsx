@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import ProductCard from '../../components/product-card/ProductCard'
 import CategoryCard from '../../components/category-card/CategoryCard'
 import SubBanner from '../../sections/sub-banner/SubBanner'
+import RightIcon from '../../assets/icons/RightIcon'
 import bestsellerProductData from '../../data/bestseller-product.json'
 import categoryData from '../../data/categories.json'
 
@@ -51,6 +52,7 @@ export default function CategoryPage() {
                             bestsellerProductData.map(item=>(
                                 <div key={item.id} className="col-xl-3 col-lg-4 col-md-6">
                                     <ProductCard
+                                        productId={item.id}
                                         productLink={`/product/${item.id}`}
                                         productTitle={item.title}
                                         productPrice={item.price}
@@ -62,7 +64,7 @@ export default function CategoryPage() {
                         }
                     </div>
                     <div className="text-center pt-4">
-                        <Link to="/shop" className="btn btn-primary">View All <i className="fi fi-br-angle-right"></i></Link>
+                        <Link to="/shop" className="btn btn-primary">View All <RightIcon /></Link>
                     </div>
                 </div>
             </section>
