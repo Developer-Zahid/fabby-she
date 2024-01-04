@@ -30,6 +30,7 @@
     }
 
     &__item{
+        position: relative;
         display: flex;
         @include max-xs{
             flex-wrap: wrap;
@@ -89,6 +90,22 @@
 
         &__body{
             flex-grow: 1;
+        }
+
+        &__btn{
+            position: absolute;
+            top: toRem(15);
+            right: toRem(15);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: toRem(30);
+            aspect-ratio: 1;
+            @extend %rounded-circle;
+            @extend %cursor-pointer;
+            color: $color-white;
+            background-color: $color-primary;
+            border: 1px solid $color-primary;
         }
     }
 

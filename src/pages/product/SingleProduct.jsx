@@ -91,7 +91,7 @@ export default function SingleProduct() {
                         <div className="product-details__actions">
                             <QuantitySpinner sendCurrentQuantity={getCurrentQuantity} max={100} />
                             <button className="btn btn-dark">Add to Cart</button>
-                            <Link to="/" className="btn btn-primary">Buy Now</Link>
+                            <Link to="/cart" className="btn btn-primary">Buy Now</Link>
                         </div>
                     </div>
                 </div>

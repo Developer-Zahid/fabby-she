@@ -10,7 +10,7 @@ const cartStore = (set)=> ({
     },
     removeCart: (cartId)=> {
         set((prevState)=>({
-            cart: prevState.cart.filter((eachItem)=> eachItem.id !== cartId)
+            cart: prevState.cart.filter((eachItem)=> eachItem.productId !== cartId)
         }))
     }
 })

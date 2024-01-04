@@ -3,12 +3,21 @@ import { Link } from 'react-router-dom'
 import SubBanner from '../../sections/sub-banner/SubBanner'
 import Image from '../../components/image/Image'
 import QuantitySpinner from '../../components/quantity-spinner/QuantitySpinner'
+import useCartStore from '../../app/store/cartStore'
+import CloseMenuIcon from '../../assets/icons/CloseMenuIcon'
 import productData from '../../data/bestseller-product.json'
 import './cartPage.scss'
-import useCartStore from '../../app/store/cartStore'
 
 export default function CartPage() {
-    const cartData = useCartStore((state)=> state.cart)
+    const {cart, addCart, removeCart} = useCartStore((state)=>({
+        cart: state.cart,
+        addCart: state.addCart,
+        removeCart: state.removeCart
+    }))
+
+    const handleRemoveCartOnClick = (productId)=>{
+        removeCart(productId)
+    }
     
     const getProductDetails = (productId, variantsId) => {
         const product = productData.find(product => product.id === productId)
@@ -22,8 +31,8 @@ export default function CartPage() {
     const [cartProductData, setCartProductData] = useState([])
 
     useEffect(() => {
-        setCartProductData(cartData.map(item => getProductDetails(item.productId, item.variantsId)))
-    }, [cartData])
+        setCartProductData(cart.map(item => getProductDetails(item.productId, item.variantsId)))
+    }, [cart])
     
     const getCurrentQuantity = (quantity) => {
         console.log('Current Quantity:', quantity)
@@ -52,11 +61,14 @@ export default function CartPage() {
                                             </figure>
                                             <div className="cart__item__body">
                                                 <Link to={`/product/${item.id}`} className="cart__item__title">{item.title}</Link>
-                                                <div className="d-flex align-items-center my-2"><span className="cart__item__text pe-2">Color:</span> <span className="product-card__body__list__item" style={{ "--_variant": item.variant.color }}></span></div>
+                                                <div className="d-flex align-items-center my-2"><span className="cart__item__text pe-2">Color:</span><span className="product-card__body__list__item" style={{ "--_variant": item.variant.color }}></span></div>
                                                 <div className="cart__item__body__footer">
                                                     <QuantitySpinner sendCurrentQuantity={getCurrentQuantity} max={100} />
                                                     <p className="cart__item__text">${item.price - item.discount}</p>
                                                 </div>
+                                                <button type="button" className="cart__item__btn" onClick={()=> handleRemoveCartOnClick(item.id)}>
+                                                    <CloseMenuIcon />
+                                                </button>
                                             </div>
                                         </div>
                                     ))
@@ -71,9 +83,7 @@ export default function CartPage() {
                                 <div className="cart__header pb-4">
                                     <h2 className="cart__header__title">Subtotal</h2>
                                     <h2 className="cart__header__title">
-                                        {
-                                            cartProductData.reduce((total, eachItem)=> (total + (eachItem.price - eachItem.discount)) , 0)
-                                        }
+                                        ${cartProductData.reduce((total, eachItem)=> (total + (eachItem.price - eachItem.discount)) , 0)}
                                     </h2>
                                 </div>
                                 <Link to="/" className="btn btn-dark w-100">Proceed To Checkout</Link>

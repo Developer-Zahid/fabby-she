@@ -9,7 +9,6 @@ import RightIcon from '../../assets/icons/RightIcon';
 
 export default function ProductCard({productId, productLink, productTitle, productPrice, productDiscount, productVariants}) {
     const [activeIndex, setActiveIndex] = useState(0)
-    const cartData = useCartStore((state)=> state.cart)
     const addCart = useCartStore((state)=> state.addCart)
 
     const handleToggleProductOnClick = (index) => {
