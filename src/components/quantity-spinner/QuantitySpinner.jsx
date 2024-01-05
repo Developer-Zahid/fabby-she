@@ -1,13 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import useCartStore from '../../app/store/cartStore';
 import MinusIcon from '../../assets/icons/MinusIcon';
 import PlusIcon from '../../assets/icons/PlusIcon';
 import './quantitySpinner.scss'
 
-export default function QuantitySpinner({sendCurrentQuantity, max}) {
-    const minQuantity = 1;
+export default function QuantitySpinner({sendCurrentQuantity, initialValue, min, max}) {
+    const minQuantity = min ? min : 1;
     const maxQuantity = max;
-    const [currentQuantity, setCurrentQuantity] = useState(minQuantity)
-    sendCurrentQuantity(currentQuantity)
+    const [currentQuantity, setCurrentQuantity] = useState(initialValue ? initialValue : minQuantity)
+
+    useEffect(() => {
+        sendCurrentQuantity(currentQuantity);
+    }, [currentQuantity, sendCurrentQuantity]);
 
     const handleInputChange = (event)=>{
         const enteredValue = parseFloat(event.target.value)
@@ -26,7 +30,6 @@ export default function QuantitySpinner({sendCurrentQuantity, max}) {
     const handleIncreaseClick = ()=>{
         setCurrentQuantity(currentQuantity < maxQuantity ? (currentQuantity + 1) : currentQuantity)
     }
-
 
     return (
         <div className="spinner">

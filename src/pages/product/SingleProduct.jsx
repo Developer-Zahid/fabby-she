@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLoaderData } from 'react-router-dom'
+import { v4 as uuidv4 } from 'uuid';
 import Image from '../../components/image/Image';
 import QuantitySpinner from '../../components/quantity-spinner/QuantitySpinner'
 import TestimonialSlider from '../../components/sliders/testimonial/TestimonialSlider'
 import testimonialSlidesData from '../../data/testimonial-slider.json'
 import LeftIcon from '../../assets/icons/LeftIcon';
 import RightIcon from '../../assets/icons/RightIcon';
+import useCartStore from '../../app/store/cartStore';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay, Keyboard, Pagination } from 'swiper/modules'
 import 'swiper/css'
@@ -14,15 +16,25 @@ import './singleProduct.scss'
 
 export default function SingleProduct() {
     const {id, SKU, title, description, price, discount, variants} = useLoaderData()
-
     const [currentProductTestimonialData, setCurrentProductTestimonialData] = useState([])
+    const [quantity, setQuantity] = useState(1);
+    const addCart = useCartStore((state)=> state.addCart)
 
     useEffect(() => {
       setCurrentProductTestimonialData(testimonialSlidesData.filter(item=> item.productId ===  id))
     }, [])
-    
-    const getCurrentQuantity = (quantity) => {
-        console.log('Current Quantity:', quantity)
+
+    const getCurrentQuantity = (newQuantity) => {
+        setQuantity(newQuantity)
+    }
+
+    const handleAddToCartOnClick = ()=>{
+        addCart({
+            id: uuidv4(),
+            productId: id,
+            variantsId: 0,
+            quantity: quantity
+        })
     }
 
     const customSingleProductPagination = {
@@ -90,7 +102,7 @@ export default function SingleProduct() {
                         <h3 className="product-details__sub-title">Quantity:</h3>
                         <div className="product-details__actions">
                             <QuantitySpinner sendCurrentQuantity={getCurrentQuantity} max={100} />
-                            <button className="btn btn-dark">Add to Cart</button>
+                            <button className="btn btn-dark" onClick={()=> handleAddToCartOnClick()}>Add to Cart</button>
                             <Link to="/cart" className="btn btn-primary">Buy Now</Link>
                         </div>
                     </div>

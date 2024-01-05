@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { v4 as uuidv4 } from 'uuid';
 import useCartStore from '../../app/store/cartStore'
 import Image from '../image/Image'
-import { v4 as uuidv4 } from 'uuid';
-import './productCard.scss'
 import CartPlusIcon from '../../assets/icons/CartPlusIcon';
 import RightIcon from '../../assets/icons/RightIcon';
+import './productCard.scss'
 
 export default function ProductCard({productId, productLink, productTitle, productPrice, productDiscount, productVariants}) {
-    const [activeIndex, setActiveIndex] = useState(0)
     const addCart = useCartStore((state)=> state.addCart)
+    const [activeIndex, setActiveIndex] = useState(0)
 
     const handleToggleProductOnClick = (index) => {
         setActiveIndex(index === activeIndex ? 0 : index)
@@ -43,8 +43,8 @@ export default function ProductCard({productId, productLink, productTitle, produ
             <div className="product-card__body">
                 {
                     productDiscount > 0 ?
-                    <h2 className="product-card__body__price">${productPrice - productDiscount}  <small className="product-card__body__price__discount">${productPrice}</small></h2> :
-                    <h2 className="product-card__body__price">${productPrice}</h2>
+                    <h2 className="product-card__body__price">৳ {productPrice - productDiscount}  <small className="product-card__body__price__discount">৳ {productPrice}</small></h2> :
+                    <h2 className="product-card__body__price">৳ {productPrice}</h2>
                 }
                 <h3 className="product-card__body__title">
                     <Link to={productLink} className="product-card__body__title__link">{productTitle}</Link>

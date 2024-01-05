@@ -2,6 +2,8 @@
 
 .cart{
     --_radius: #{toRem(8)};
+    --_remove-btn-size: #{toRem(30)};
+    --_remove-btn-offset: #{toRem(15)};
 
     &__header,
     &__item__body__footer
@@ -24,7 +26,8 @@
     }
 
     &__item,
-    &__body
+    &__body,
+    &__empty
     {
         background-color: $color-white;
     }
@@ -68,6 +71,10 @@
         }
 
         &__title{
+            display: inline-block;
+            @include min-sm{
+                max-width: calc(100% - (var(--_remove-btn-size) + var(--_remove-btn-offset)));
+            }
             font-size: toRem(22);
             @extend %fw-bold;
             @extend %transition;
@@ -94,23 +101,57 @@
 
         &__btn{
             position: absolute;
-            top: toRem(15);
-            right: toRem(15);
+            top: var(--_remove-btn-offset);
+            right: var(--_remove-btn-offset);
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: toRem(30);
+            width: var(--_remove-btn-size);
             aspect-ratio: 1;
             @extend %rounded-circle;
             @extend %cursor-pointer;
+            @extend %transition;
             color: $color-white;
             background-color: $color-primary;
-            border: 1px solid $color-primary;
+            @include min-sm{
+                color: $color-black;
+                background-color: transparent;
+            }
+            border: 0;
+
+            &:focus-visible,
+            &:active
+            {
+                color: $color-white;
+                background-color: $color-primary;
+            }
         }
     }
 
     &__body{
         padding: toRem(20);
         border-radius: var(--_radius);
+    }
+
+    &__empty{
+        padding: toRem(40) toRem(20);
+        border-radius: var(--_radius);
+
+        &__icon{
+            display: inline-block;
+            color: $color-primary;
+            font-size: toRem(60);
+        }
+
+        &__title{
+            font-size: toRem(30);
+            @extend %fw-extrabold;
+        }
+
+        &__text{
+            font-size: toRem(16);
+            margin-block-start: toRem(10);
+            margin-block-end: toRem(20);
+        }
     }
 }

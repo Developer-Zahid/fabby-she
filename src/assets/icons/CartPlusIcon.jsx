@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function CartPlusIcon() {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1em" height="1em" x="0" y="0" viewBox="0 0 24 24" xml:space="preserve">
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink" width="1em" height="1em" x="0" y="0" viewBox="0 0 24 24" xmlSpace="preserve">
             <circle cx="7" cy="22" r="2" fill="currentColor"></circle>
             <circle cx="17" cy="22" r="2" fill="currentColor"></circle>
             <path d="M23 3h-2V1a1 1 0 0 0-2 0v2h-2a1 1 0 0 0 0 2h2v2a1 1 0 0 0 2 0V5h2a1 1 0 0 0 0-2Z" fill="currentColor"></path>
