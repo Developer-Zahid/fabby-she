@@ -10,14 +10,22 @@ import productData from '../../data/bestseller-product.json'
 import './cartPage.scss'
 
 export default function CartPage() {
+    const [cartProductData, setCartProductData] = useState([])
+
     const {cart, addCart, removeCart} = useCartStore((state)=>({
         cart: state.cart,
         addCart: state.addCart,
         removeCart: state.removeCart
     }))
 
+    console.log(cartProductData);
+
     const handleRemoveCartOnClick = (cartId)=>{
         removeCart(cartId)
+    }
+
+    const getCurrentQuantity = (newQuantity) => {
+        console.log(newQuantity);
     }
     
     const getProductDetails = (cartId, productId, variantsId, quantity) => {
@@ -29,15 +37,9 @@ export default function CartPage() {
         return null
     }
 
-    const [cartProductData, setCartProductData] = useState([])
-
     useEffect(() => {
         setCartProductData(cart.map(item => getProductDetails(item.id, item.productId, item.variantsId, item.quantity)))
     }, [cart])
-    
-    const getCurrentQuantity = (quantity) => {
-        console.log('Current Quantity:', quantity)
-    }
 
     return (
         <>
@@ -63,11 +65,11 @@ export default function CartPage() {
                                             </figure>
                                             <div className="cart__item__body">
                                                 <Link to={`/product/${item.id}`} className="cart__item__title">{item.title}</Link>
-                                                <p className="cart__item__text mt-1">৳ {item.price - item.discount}</p>
+                                                <p className="cart__item__text mt-1">৳ {(item.price - item.discount).toFixed(2)}</p>
                                                 <div className="d-flex align-items-center my-2"><span className="cart__item__text pe-2">Color:</span><span className="product-card__body__list__item" style={{ "--_variant": item.variant.color }}></span></div>
                                                 <div className="cart__item__body__footer">
-                                                    <QuantitySpinner sendCurrentQuantity={getCurrentQuantity} initialValue={item.quantity} max={100} />
-                                                    <p className="cart__item__text"><strong>৳ {(item.price - item.discount) * item.quantity}</strong></p>
+                                                    <QuantitySpinner sendCurrentQuantity={getCurrentQuantity} initialValue={item.quantity} max={item.stock} />
+                                                    <p className="cart__item__text"><strong>৳ {((item.price - item.discount) * item.quantity).toFixed(2)}</strong></p>
                                                 </div>
                                                 <button type="button" className="cart__item__btn" onClick={()=> handleRemoveCartOnClick(item.cartId)}>
                                                     <CloseMenuIcon />
@@ -94,7 +96,7 @@ export default function CartPage() {
                                 <div className="cart__header pb-4">
                                     <h2 className="cart__header__title">Subtotal</h2>
                                     <h2 className="cart__header__title">
-                                    ৳ {cartProductData.reduce((total, eachItem)=> (total + ((eachItem.price - eachItem.discount) * eachItem.quantity)) , 0)}
+                                    ৳ {(cartProductData.reduce((total, eachItem)=> (total + ((eachItem.price - eachItem.discount) * eachItem.quantity)) , 0)).toFixed(2)}
                                     </h2>
                                 </div>
                                 <Link to="/" className="btn btn-dark text-center w-100">Proceed To Checkout</Link>

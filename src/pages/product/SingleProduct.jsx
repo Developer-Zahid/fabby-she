@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useCallback, useEffect, useRef } from 'react'
 import { Link, useLoaderData } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid';
 import Image from '../../components/image/Image';
@@ -15,14 +15,41 @@ import 'swiper/css/navigation'
 import './singleProduct.scss'
 
 export default function SingleProduct() {
-    const {id, SKU, title, description, price, discount, variants} = useLoaderData()
+    const minQuantity = 1
+    const {id, SKU, title, description, price, discount, stock, variants} = useLoaderData()
     const [currentProductTestimonialData, setCurrentProductTestimonialData] = useState([])
-    const [quantity, setQuantity] = useState(1);
-    const addCart = useCartStore((state)=> state.addCart)
+    const [initialQuantity, setInitialQuantity] = useState(minQuantity)
+    const [maxQuantity, setMaxQuantity] = useState(stock)
+    const [quantity, setQuantity] = useState(minQuantity)
+    const [currentVariantIndex, setCurrentVariantIndex] = useState(0)
+    const quantitySpinnerRef = useRef()
+    const {cart, addCart} = useCartStore((state)=>({
+        cart: state.cart,
+        addCart: state.addCart
+    }))
+    const hasMoreThanOneProduct = variants.length > 1
+    const variantIndexRef = useRef(currentVariantIndex)
 
+    // useEffect(() => {
+    //     variantIndexRef.current = currentVariantIndex;
+    // }, [currentVariantIndex])
+
+
+    
     useEffect(() => {
-      setCurrentProductTestimonialData(testimonialSlidesData.filter(item=> item.productId ===  id))
-    }, [])
+        setCurrentProductTestimonialData(testimonialSlidesData.filter(item=> item.productId === id))
+
+        // Update the max quantity based on the current variant index
+        const totalQuantityInCart = cart.reduce((total, eachItem) => {
+            if (eachItem.productId === id && eachItem.variantsId === variants[variantIndexRef.current]._id) {
+                return total + eachItem.quantity;
+            }
+            return total;
+        }, 0);
+
+        setMaxQuantity(stock - totalQuantityInCart);
+
+    }, [id, stock, cart, variants])
 
     const getCurrentQuantity = (newQuantity) => {
         setQuantity(newQuantity)
@@ -32,9 +59,13 @@ export default function SingleProduct() {
         addCart({
             id: uuidv4(),
             productId: id,
-            variantsId: 0,
+            variantsId: variants[currentVariantIndex]._id,
             quantity: quantity
         })
+        
+        setMaxQuantity((prevState)=> prevState - quantity)
+        setInitialQuantity(minQuantity)
+        quantitySpinnerRef.current.resetQuantity()
     }
 
     const customSingleProductPagination = {
@@ -45,6 +76,19 @@ export default function SingleProduct() {
         },
     }
 
+    const [swiperInstance, setSwiperInstance] = useState(null);
+
+    const onSlideChange = useCallback((event) => {
+        setCurrentVariantIndex(event.realIndex);
+    }, [currentVariantIndex]);
+
+    useEffect(() => {
+        if (swiperInstance) {
+            swiperInstance.on("slideChange", onSlideChange);
+        }
+    }, [swiperInstance, onSlideChange]);
+
+
     return (
         <>
         {/* Product Details Section */}
@@ -53,14 +97,20 @@ export default function SingleProduct() {
                 <div className="row flex-xl-row-reverse justify-content-between">
                     <div className="col-xl-5 col-lg-6">
                         <div className="product-details__slider-wrapper">
-                            <button type="button" className="product-details__slider__arrow product-details__slider__arrow--prev">
-                                <LeftIcon />
-                            </button>
-                            <button type="button" className="product-details__slider__arrow product-details__slider__arrow--next">
-                                <RightIcon />
-                            </button>
+                            {
+                                hasMoreThanOneProduct &&
+                                <>
+                                <button type="button" className="product-details__slider__arrow product-details__slider__arrow--prev">
+                                    <LeftIcon />
+                                </button>
+                                <button type="button" className="product-details__slider__arrow product-details__slider__arrow--next">
+                                    <RightIcon />
+                                </button>
+                                </>
+                            }
                             <Swiper
                                 navigation={{
+                                    enabled: true,
                                     prevEl: '.product-details__slider__arrow.product-details__slider__arrow--prev',
                                     nextEl: '.product-details__slider__arrow.product-details__slider__arrow--next',
                                 }}
@@ -68,12 +118,14 @@ export default function SingleProduct() {
                                 modules={[ Navigation, Autoplay, Keyboard, Pagination]}
                                 slidesPerView={1}
                                 grabCursor={true}
-                                loop={true}
+                                loop={ true}
                                 keyboard={{enabled: true}}
                                 autoplay={{
                                     delay: 3000,
                                     disableOnInteraction: true,
                                 }}
+                                // onSlideChange={(event) => handleSlideChange(event)}
+                                // onSlideChange={onSlideChange}
                                 className="product-details__slider"
                             >
                                 {
@@ -101,8 +153,11 @@ export default function SingleProduct() {
                         <div className="product-card__body__list mb-3"></div>
                         <h3 className="product-details__sub-title">Quantity:</h3>
                         <div className="product-details__actions">
-                            <QuantitySpinner sendCurrentQuantity={getCurrentQuantity} max={100} />
-                            <button className="btn btn-dark" onClick={()=> handleAddToCartOnClick()}>Add to Cart</button>
+                            <QuantitySpinner ref={quantitySpinnerRef} sendCurrentQuantity={getCurrentQuantity} initialValue={initialQuantity} max={maxQuantity} min={minQuantity} />
+                            {
+                                maxQuantity >= 1 &&
+                                <button className="btn btn-dark" onClick={()=> handleAddToCartOnClick()}>Add to Cart</button>
+                            }
                             <Link to="/cart" className="btn btn-primary">Buy Now</Link>
                         </div>
                     </div>

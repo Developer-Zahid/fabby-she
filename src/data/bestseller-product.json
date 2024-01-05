@@ -6,6 +6,7 @@
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, quis labore nemo exercitationem dolores ipsa at tempora assumenda esse placeat?",
         "price": 20,
         "discount": 0,
+        "stock": 60,
         "variants": [
             {
                 "_id": 0,
@@ -34,6 +35,7 @@
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, quis labore nemo exercitationem dolores ipsa at tempora assumenda esse placeat?",
         "price": 22.5,
         "discount": 5,
+        "stock": 10,
         "variants": [
             {
                 "_id": 0,
@@ -56,6 +58,7 @@
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, quis labore nemo exercitationem dolores ipsa at tempora assumenda esse placeat?",
         "price": 41.56,
         "discount": 5,
+        "stock": 20,
         "variants": [
             {
                 "_id": 0,
@@ -90,6 +93,7 @@
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, quis labore nemo exercitationem dolores ipsa at tempora assumenda esse placeat?",
         "price": 35,
         "discount": 5,
+        "stock": 50,
         "variants": [
             {
                 "_id": 0,
