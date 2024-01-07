@@ -23,31 +23,25 @@ export default function SingleProduct() {
     const [quantity, setQuantity] = useState(minQuantity)
     const [currentVariantIndex, setCurrentVariantIndex] = useState(0)
     const quantitySpinnerRef = useRef()
+    const hasMoreThanOneProduct = variants.length > 1
+    const variantIndexRef = useRef(currentVariantIndex)
     const {cart, addCart} = useCartStore((state)=>({
         cart: state.cart,
         addCart: state.addCart
     }))
-    const hasMoreThanOneProduct = variants.length > 1
-    const variantIndexRef = useRef(currentVariantIndex)
 
-    // useEffect(() => {
-    //     variantIndexRef.current = currentVariantIndex;
-    // }, [currentVariantIndex])
-
-
-    
+   
     useEffect(() => {
         setCurrentProductTestimonialData(testimonialSlidesData.filter(item=> item.productId === id))
 
-        // Update the max quantity based on the current variant index
         const totalQuantityInCart = cart.reduce((total, eachItem) => {
             if (eachItem.productId === id && eachItem.variantsId === variants[variantIndexRef.current]._id) {
                 return total + eachItem.quantity;
             }
             return total;
-        }, 0);
+        }, 0)
 
-        setMaxQuantity(stock - totalQuantityInCart);
+        setMaxQuantity(stock - totalQuantityInCart)
 
     }, [id, stock, cart, variants])
 
@@ -66,28 +60,20 @@ export default function SingleProduct() {
         setMaxQuantity((prevState)=> prevState - quantity)
         setInitialQuantity(minQuantity)
         quantitySpinnerRef.current.resetQuantity()
+        console.log(maxQuantity)
+    }
+
+    const handleSlideChange = (swiper) => {
+        setCurrentVariantIndex(swiper.realIndex)
     }
 
     const customSingleProductPagination = {
         el: ".product-card__body__list",
         clickable: true,
         renderBullet: function (index, className) {
-            return `<button type="button" class="product-card__body__list__item ${className}" style="--_variant: ${variants[index].color}"></button>`;
+            return `<button type="button" class="product-card__body__list__item ${className}" style="--_variant: ${variants[index].color}"></button>`
         },
     }
-
-    const [swiperInstance, setSwiperInstance] = useState(null);
-
-    const onSlideChange = useCallback((event) => {
-        setCurrentVariantIndex(event.realIndex);
-    }, [currentVariantIndex]);
-
-    useEffect(() => {
-        if (swiperInstance) {
-            swiperInstance.on("slideChange", onSlideChange);
-        }
-    }, [swiperInstance, onSlideChange]);
-
 
     return (
         <>
@@ -124,8 +110,7 @@ export default function SingleProduct() {
                                     delay: 3000,
                                     disableOnInteraction: true,
                                 }}
-                                // onSlideChange={(event) => handleSlideChange(event)}
-                                // onSlideChange={onSlideChange}
+                                onRealIndexChange={(swiper) => handleSlideChange(swiper)}
                                 className="product-details__slider"
                             >
                                 {
